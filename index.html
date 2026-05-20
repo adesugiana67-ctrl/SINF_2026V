@@ -28,248 +28,255 @@
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col">
 
-    <nav class="bg-[#0b1e33] text-white px-4 md:px-6 py-3 flex flex-col md:flex-row justify-between items-center shadow-md space-y-3 md:space-y-0">
-        <div class="flex items-center space-x-3 self-start md:self-auto">
+    <nav class="bg-[#0b1e33] text-white px-6 py-3 flex justify-between items-center shadow-md">
+        <div class="flex items-center space-x-3">
             <div class="w-8 h-8 bg-amber-500 rounded flex items-center justify-center font-bold text-xs text-slate-900">DISDIK</div>
             <span class="font-semibold text-sm tracking-wide">DISDIK SUMEDANG <br><span class="text-xs text-gray-400">Sistem Penjaminan Mutu 2026</span></span>
         </div>
-        <div class="flex overflow-x-auto w-full md:w-auto space-x-1 pb-1 md:pb-0 no-print scrollbar-none whitespace-nowrap">
+        <div class="flex space-x-1">
             <button onclick="switchTab('beranda')" id="nav-beranda" class="px-3 py-2 rounded text-xs font-medium transition bg-blue-600 text-white">Beranda</button>
             <button onclick="switchTab('akreditasi')" id="nav-akreditasi" class="px-3 py-2 rounded text-xs font-medium transition text-gray-300 hover:bg-slate-800">Data Akreditasi</button>
             <button onclick="switchTab('ijin-operasional')" id="nav-ijin-operasional" class="px-3 py-2 rounded text-xs font-medium transition text-gray-300 hover:bg-slate-800">Ijin Operasional</button>
             <button onclick="switchTab('peserta-didik')" id="nav-peserta-didik" class="px-3 py-2 rounded text-xs font-medium transition text-gray-300 hover:bg-slate-800">Peserta Didik SPMB</button>
-            <button onclick="switchTab('e-rapor')" id="nav-e-rapor" class="px-3 py-2 rounded text-xs font-medium transition text-gray-300 hover:bg-slate-800">E-Rapor & SNP</button>
+            <button onclick="switchTab('e-rapor')" id="nav-e-rapor" class="px-3 py-2 rounded text-xs font-medium transition text-gray-300 hover:bg-slate-800">Daftar Program/Layanan Keterampilan Kerja</button>
         </div>
     </nav>
 
-    <header id="main-header" class="bg-white mx-4 md:mx-6 mt-6 p-4 md:p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col items-center text-center">
-        <div class="w-12 h-12 md:w-16 md:h-16 bg-gray-200 rounded-full mb-3 flex items-center justify-center text-gray-500 font-bold text-[10px] md:text-xs">[ LOGO ]</div>
-        <h1 class="text-base md:text-xl font-bold text-[#1e3a8a] tracking-wide">DINAS PENDIDIKAN KABUPATEN SUMEDANG</h1>
-        <h2 class="text-xs md:text-sm font-semibold text-gray-700 mt-1 uppercase">Standar Pengelolaan Satuan Pendidikan Non Formal <br> Penyelenggaraan Pendidikan Kesetaraan SKB/PKBM Tahun 2026</h2>
-        <p class="text-[10px] md:text-xs italic text-gray-500 mt-2">"MANAJEMEN BERBASIS SEKOLAH (MBS) DAN PENGELOLAAN SISTEM INFORMASI (DIGITALISASI)"</p>
+    <header id="main-header" class="bg-white mx-6 mt-6 p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col items-center text-center">
+        <div class="w-36 h-36 -center justify-center-logo"><img src="logo.png" alt="Logo Kabupaten Sumedang"></div>
+        <h1 class="text-xl font-bold text-[#1e3a8a] tracking-wide">DINAS PENDIDIKAN KABUPATEN SUMEDANG</h1>
+        <h2 class="text-sm font-semibold text-gray-700 mt-1 uppercase">Standar Pengelolaan Lembaga Kursus Non Formal <br> Penyelenggaraan Pendidikan Lembaga Kursus Non Formal Tahun 2026</h2>
+        <p class="text-xs italic text-gray-500 mt-2">"MANAJEMEN BERBASIS SEKOLAH (MBS) DAN PENGELOLAAN SISTEM INFORMASI (DIGITALISASI)"</p>
     </header>
 
-    <main id="print-area-dashboard" class="flex-1 p-4 md:p-6">
+    <main id="print-area-dashboard" class="flex-1 p-6">
 
         <section id="tab-beranda" class="space-y-6">
             
-            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 no-print">
-                <h3 class="text-base md:text-lg font-bold text-gray-800">Ringkasan Statistik Penjaminan Mutu</h3>
+            <div class="flex justify-between items-center no-print">
+                <h3 class="text-lg font-bold text-gray-800">Ringkasan Statistik Penjaminan Mutu</h3>
                 <div class="flex space-x-2">
-                    <button onclick="window.print()" class="bg-gray-700 hover:bg-gray-800 text-white px-3 py-2 rounded text-xs font-medium whitespace-nowrap"><i class="fa-solid fa-print mr-1"></i> Cetak</button>
-                    <button onclick="downloadDashboardPDF()" class="bg-rose-700 hover:bg-rose-800 text-white px-3 py-2 rounded text-xs font-medium whitespace-nowrap"><i class="fa-solid fa-file-pdf mr-1"></i> Unduh PDF Beranda</button>
+                    <button onclick="window.print()" class="bg-gray-700 hover:bg-gray-800 text-white px-3 py-2 rounded text-xs font-medium"><i class="fa-solid fa-print mr-1"></i> Cetak Halaman</button>
+                    <button onclick="downloadDashboardPDF()" class="bg-rose-700 hover:bg-rose-800 text-white px-3 py-2 rounded text-xs font-medium"><i class="fa-solid fa-file-pdf mr-1"></i> Unduh PDF Beranda</button>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 no-print">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 no-print">
                 <div onclick="switchTab('akreditasi')" class="bg-blue-600 text-white p-4 rounded-xl shadow-sm flex items-center justify-between cursor-pointer hover:bg-blue-700 transition">
-                    <div><h3 class="font-semibold text-sm md:text-base">Data Akreditasi</h3><p class="text-[11px] text-blue-100">Status akreditasi lembaga</p></div>
+                    <div>
+                        <h3 class="font-semibold text-base">Data Akreditasi</h3>
+                        <p class="text-[11px] text-blue-100">Status akreditasi lembaga</p>
+                    </div>
                     <i class="fa-solid fa-graduation-cap text-2xl opacity-50"></i>
                 </div>
                 <div onclick="switchTab('ijin-operasional')" class="bg-amber-600 text-white p-4 rounded-xl shadow-sm flex items-center justify-between cursor-pointer hover:bg-amber-700 transition">
-                    <div><h3 class="font-semibold text-sm md:text-base">Ijin Operasional</h3><p class="text-[11px] text-amber-100">Masa berlaku ijin lembaga</p></div>
+                    <div>
+                        <h3 class="font-semibold text-base">Ijin Operasional</h3>
+                        <p class="text-[11px] text-amber-100">Masa berlaku ijin lembaga</p>
+                    </div>
                     <i class="fa-solid fa-file-signature text-2xl opacity-50"></i>
                 </div>
                 <div onclick="switchTab('peserta-didik')" class="bg-emerald-600 text-white p-4 rounded-xl shadow-sm flex items-center justify-between cursor-pointer hover:bg-emerald-700 transition">
-                    <div><h3 class="font-semibold text-sm md:text-base">Peserta Didik SPMB</h3><p class="text-[11px] text-emerald-100">Rekap ATS/APS & verval</p></div>
+                    <div>
+                        <h3 class="font-semibold text-base">Peserta Didik SPMB</h3>
+                        <p class="text-[11px] text-emerald-100">Rekap Peserta Didik Berdasarkan Minat dan Bakat</p>
+                    </div>
                     <i class="fa-solid fa-users text-2xl opacity-50"></i>
                 </div>
                 <div onclick="switchTab('e-rapor')" class="bg-rose-600 text-white p-4 rounded-xl shadow-sm flex items-center justify-between cursor-pointer hover:bg-rose-700 transition">
-                    <div><h3 class="font-semibold text-sm md:text-base">E-Rapor & SNP</h3><p class="text-[11px] text-rose-100">Capaian Standar Nasional</p></div>
+                    <div>
+                        <h3 class="font-semibold text-base">Daftar Program/Layanan Keterampilan Kerja</h3>
+                        <p class="text-[11px] text-rose-100">Capaian Lembaga berdasarkan Program dan Layanan</p>
+                    </div>
                     <i class="fa-solid fa-chart-line text-2xl opacity-50"></i>
                 </div>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-                    <span class="text-[10px] md:text-xs font-semibold text-gray-500 block uppercase">Total Lembaga</span>
-                    <span id="stat-total-lembaga" class="text-xl md:text-3xl font-bold text-gray-800">0</span>
+                    <span class="text-xs font-semibold text-gray-500 block uppercase">Total Lembaga</span>
+                    <span id="stat-total-lembaga" class="text-3xl font-bold text-gray-800">0</span>
                 </div>
                 <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-                    <span class="text-[10px] md:text-xs font-semibold text-gray-500 block uppercase">Total Peserta Didik</span>
-                    <span id="stat-total-pd" class="text-xl md:text-3xl font-bold text-gray-800">0</span>
+                    <span class="text-xs font-semibold text-gray-500 block uppercase">Total Peserta Didik</span>
+                    <span id="stat-total-pd" class="text-3xl font-bold text-gray-800">0</span>
                 </div>
                 <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-                    <span class="text-[10px] md:text-xs font-semibold text-gray-500 block uppercase">Status Verval</span>
-                    <span id="stat-verval-percent" class="text-xl md:text-3xl font-bold text-gray-800">0%</span>
-                    <span id="stat-verval-detail" class="text-[10px] text-gray-400 block mt-1">0 sudah - 0 belum</span>
+                    <span class="text-xs font-semibold text-gray-500 block uppercase">Status Verval</span>
+                    <span id="stat-verval-percent" class="text-3xl font-bold text-gray-800">0%</span>
+                    <span id="stat-verval-detail" class="text-xs text-gray-400 block mt-1">0 sudah - 0 belum</span>
                 </div>
                 <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-                    <span class="text-[10px] md:text-xs font-semibold text-gray-500 block uppercase">Lembaga E-Rapor (Lengkap)</span>
-                    <span id="stat-lembaga-erapor" class="text-xl md:text-3xl font-bold text-gray-800">0</span>
+                    <span class="text-xs font-semibold text-gray-500 block uppercase">Daftar Program/Layanan Keterampilan Kerja (Lengkap)</span>
+                    <span id="stat-lembaga-erapor" class="text-3xl font-bold text-gray-800">0</span>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div class="bg-white p-4 md:p-5 rounded-xl border border-gray-200 shadow-sm">
-                    <h3 class="text-xs md:text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">Laporan Data Akreditasi</h3>
+                <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                    <h3 class="text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">Laporan Data Akreditasi</h3>
                     <div class="h-64 flex justify-center items-center"><canvas id="chartAkreditasi"></canvas></div>
                 </div>
-                <div class="bg-white p-4 md:p-5 rounded-xl border border-gray-200 shadow-sm">
-                    <h3 class="text-xs md:text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">Laporan Peserta Didik SPMB ATS/APS</h3>
+                <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                    <h3 class="text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">Laporan Peserta Didik SPMB</h3>
                     <div class="grid grid-cols-2 gap-2 h-64">
                         <div class="flex flex-col items-center">
-                            <span class="text-[10px] md:text-xs font-medium text-gray-500 mb-2">Komposisi Gender</span>
+                            <span class="text-xs font-medium text-gray-500 mb-2">Komposisi Gender</span>
                             <div class="w-full h-48"><canvas id="chartGender"></canvas></div>
                         </div>
                         <div class="flex flex-col items-center">
-                            <span class="text-[10px] md:text-xs font-medium text-gray-500 mb-2">Status Verval</span>
+                            <span class="text-xs font-medium text-gray-500 mb-2">Status Verval KKNI</span>
                             <div class="w-full h-48"><canvas id="chartVerval"></canvas></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 md:p-5 rounded-xl border border-gray-200 shadow-sm">
-                <h3 class="text-xs md:text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">Laporan E-Rapor & 8 SNP SKB/PKBM (Rata-rata Capaian Nasional %)</h3>
+            <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">Daftar Program/Layanan Keterampilan Kerja (Rata-rata KKNI %)</h3>
                 <div class="h-72"><canvas id="chartSNP"></canvas></div>
             </div>
         </section>
 
 
         <section id="tab-akreditasi" class="hidden space-y-4">
-            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
-                <h3 class="text-base md:text-lg font-bold text-gray-800">Data Akreditasi Lembaga</h3>
-                <div class="flex space-x-2 self-end sm:self-auto">
-                    <button onclick="window.print()" class="bg-gray-700 hover:bg-gray-800 text-white px-2.5 py-1.5 rounded text-xs font-medium"><i class="fa-solid fa-print"></i></button>
-                    <button onclick="downloadPDF('print-akreditasi', 'Data_Akreditasi_Lembaga')" class="bg-rose-700 hover:bg-rose-800 text-white px-2.5 py-1.5 rounded text-xs font-medium"><i class="fa-solid fa-file-pdf"></i> PDF</button>
-                    <button onclick="openAddModal('modal-akreditasi', 'form-akreditasi')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded text-xs font-medium"><i class="fa-solid fa-plus mr-1"></i> Baru</button>
+            <div class="flex justify-between items-center">
+                <h3 class="text-lg font-bold text-gray-800">Data Akreditasi Lembaga</h3>
+                <div class="flex space-x-2">
+                    <button onclick="window.print()" class="bg-gray-700 hover:bg-gray-800 text-white px-3 py-2 rounded text-xs font-medium"><i class="fa-solid fa-print mr-1"></i> Cetak</button>
+                    <button onclick="downloadPDF('print-akreditasi', 'Data_Akreditasi_Lembaga')" class="bg-rose-700 hover:bg-rose-800 text-white px-3 py-2 rounded text-xs font-medium"><i class="fa-solid fa-file-pdf mr-1"></i> Unduh PDF</button>
+                    <button onclick="openAddModal('modal-akreditasi', 'form-akreditasi')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-xs font-medium"><i class="fa-solid fa-plus mr-1"></i> Input Data Baru</button>
                 </div>
             </div>
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-x-auto p-2">
-                <div id="print-akreditasi" class="min-w-[1000px]">
-                    <h2 class="text-center font-bold text-sm text-gray-800 mb-3 uppercase tracking-wide hidden print:block">Laporan Penjaminan Mutu: Data Akreditasi Lembaga 2026</h2>
-                    <table class="w-full text-left border-collapse text-xs">
-                        <thead>
-                            <tr class="bg-gray-50 border-b border-gray-200 text-gray-600 font-semibold uppercase">
-                                <th class="p-3 text-center">No</th>
-                                <th class="p-3">NPSN</th>
-                                <th class="p-3">Nama Sekolah</th>
-                                <th class="p-3">Alamat</th>
-                                <th class="p-3">Kepala Sekolah</th>
-                                <th class="p-3 text-center">Akreditasi</th>
-                                <th class="p-3 text-center">Tahun Akre</th>
-                                <th class="p-3 text-center">Tahun Berakhir</th>
-                                <th class="p-3">Nomor SK</th>
-                                <th class="p-3 text-center no-print">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table-akreditasi-body" class="text-gray-700 divide-y divide-gray-100"></tbody>
-                    </table>
-                </div>
+            <div id="print-akreditasi" class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-x-auto p-2">
+                <h2 class="text-center font-bold text-sm text-gray-800 mb-3 uppercase tracking-wide hidden print:block">Laporan Penjaminan Mutu: Data Akreditasi Lembaga 2026</h2>
+                <table class="w-full text-left border-collapse text-xs min-w-[1000px]">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200 text-gray-600 font-semibold uppercase">
+                            <th class="p-3 text-center">No</th>
+                            <th class="p-3">NPSN</th>
+                            <th class="p-3">Nama Sekolah</th>
+                            <th class="p-3">Alamat</th>
+                            <th class="p-3">Kepala Sekolah</th>
+                            <th class="p-3 text-center">Akreditasi</th>
+                            <th class="p-3 text-center">Tahun Akre</th>
+                            <th class="p-3 text-center">Tahun Berakhir</th>
+                            <th class="p-3">Nomor SK</th>
+                            <th class="p-3 text-center no-print">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-akreditasi-body" class="text-gray-700 divide-y divide-gray-100"></tbody>
+                </table>
             </div>
         </section>
 
 
         <section id="tab-ijin-operasional" class="hidden space-y-4">
-            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
-                <h3 class="text-base md:text-lg font-bold text-gray-800">Data Ijin Operasional Lembaga</h3>
-                <div class="flex space-x-2 self-end sm:self-auto">
-                    <button onclick="window.print()" class="bg-gray-700 hover:bg-gray-800 text-white px-2.5 py-1.5 rounded text-xs font-medium"><i class="fa-solid fa-print"></i></button>
-                    <button onclick="downloadPDF('print-ijin', 'Data_Ijin_Operasional')" class="bg-rose-700 hover:bg-rose-800 text-white px-2.5 py-1.5 rounded text-xs font-medium"><i class="fa-solid fa-file-pdf"></i> PDF</button>
-                    <button onclick="openAddModal('modal-ijin', 'form-ijin')" class="bg-amber-600 hover:bg-amber-700 text-white px-3 py-1.5 rounded text-xs font-medium"><i class="fa-solid fa-plus mr-1"></i> Baru</button>
+            <div class="flex justify-between items-center">
+                <h3 class="text-lg font-bold text-gray-800">Data Ijin Operasional Lembaga</h3>
+                <div class="flex space-x-2">
+                    <button onclick="window.print()" class="bg-gray-700 hover:bg-gray-800 text-white px-3 py-2 rounded text-xs font-medium"><i class="fa-solid fa-print mr-1"></i> Cetak</button>
+                    <button onclick="downloadPDF('print-ijin', 'Data_Ijin_Operasional')" class="bg-rose-700 hover:bg-rose-800 text-white px-3 py-2 rounded text-xs font-medium"><i class="fa-solid fa-file-pdf mr-1"></i> Unduh PDF</button>
+                    <button onclick="openAddModal('modal-ijin', 'form-ijin')" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-xs font-medium"><i class="fa-solid fa-plus mr-1"></i> Input Data Baru</button>
                 </div>
             </div>
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-x-auto p-2">
-                <div id="print-ijin" class="min-w-[1000px]">
-                    <h2 class="text-center font-bold text-sm text-gray-800 mb-3 uppercase tracking-wide hidden print:block">Laporan Penjaminan Mutu: Data Ijin Operasional Lembaga 2026</h2>
-                    <table class="w-full text-left border-collapse text-xs">
-                        <thead>
-                            <tr class="bg-gray-50 border-b border-gray-200 text-gray-600 font-semibold uppercase">
-                                <th class="p-3 text-center">No</th>
-                                <th class="p-3">NPSN</th>
-                                <th class="p-3">Nama Lembaga</th>
-                                <th class="p-3">Alamat</th>
-                                <th class="p-3">Kepala Sekolah</th>
-                                <th class="p-3 text-center">Tahun Pembuatan</th>
-                                <th class="p-3 text-center">Tahun Berakhir</th>
-                                <th class="p-3 text-center no-print">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table-ijin-body" class="text-gray-700 divide-y divide-gray-100"></tbody>
-                    </table>
-                </div>
+            <div id="print-ijin" class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-x-auto p-2">
+                <h2 class="text-center font-bold text-sm text-gray-800 mb-3 uppercase tracking-wide hidden print:block">Laporan Penjaminan Mutu: Data Ijin Operasional Lembaga 2026</h2>
+                <table class="w-full text-left border-collapse text-xs min-w-[1000px]">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200 text-gray-600 font-semibold uppercase">
+                            <th class="p-3 text-center">No</th>
+                            <th class="p-3">NPSN</th>
+                            <th class="p-3">Nama Lembaga</th>
+                            <th class="p-3">Alamat</th>
+                            <th class="p-3">Kepala Sekolah</th>
+                            <th class="p-3 text-center">Pembuatan</th>
+                            <th class="p-3 text-center">Berakhir</th>
+                            <th class="p-3">Nomor SK</th>
+                            <th class="p-3 text-center no-print">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-ijin-body" class="text-gray-700 divide-y divide-gray-100"></tbody>
+                </table>
             </div>
         </section>
 
 
         <section id="tab-peserta-didik" class="hidden space-y-4">
-            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
-                <h3 class="text-base md:text-lg font-bold text-gray-800">Data Peserta Didik SPMB ATS/APS</h3>
-                <div class="flex space-x-2 self-end sm:self-auto">
-                    <button onclick="window.print()" class="bg-gray-700 hover:bg-gray-800 text-white px-2.5 py-1.5 rounded text-xs font-medium"><i class="fa-solid fa-print"></i></button>
-                    <button onclick="downloadPDF('print-pd', 'Data_Peserta_Didik')" class="bg-rose-700 hover:bg-rose-800 text-white px-2.5 py-1.5 rounded text-xs font-medium"><i class="fa-solid fa-file-pdf"></i> PDF</button>
-                    <button onclick="openAddModal('modal-pd', 'form-pd')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1.5 rounded text-xs font-medium"><i class="fa-solid fa-plus mr-1"></i> Baru</button>
+            <div class="flex justify-between items-center">
+                <h3 class="text-lg font-bold text-gray-800">Data Peserta Didik SPMB</h3>
+                <div class="flex space-x-2">
+                    <button onclick="window.print()" class="bg-gray-700 hover:bg-gray-800 text-white px-3 py-2 rounded text-xs font-medium"><i class="fa-solid fa-print mr-1"></i> Cetak</button>
+                    <button onclick="downloadPDF('print-pd', 'Data_Peserta_Didik')" class="bg-rose-700 hover:bg-rose-800 text-white px-3 py-2 rounded text-xs font-medium"><i class="fa-solid fa-file-pdf mr-1"></i> Unduh PDF</button>
+                    <button onclick="openAddModal('modal-pd', 'form-pd')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded text-xs font-medium"><i class="fa-solid fa-plus mr-1"></i> Input Data Baru</button>
                 </div>
             </div>
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-x-auto p-2">
-                <div id="print-pd" class="min-w-[900px]">
-                    <h2 class="text-center font-bold text-sm text-gray-800 mb-3 uppercase tracking-wide hidden print:block">Laporan Rekapitulasi: Data Peserta Didik Kesetaraan 2026</h2>
-                    <table class="w-full text-left border-collapse text-xs">
-                        <thead>
-                            <tr class="bg-gray-50 border-b border-gray-200 text-gray-600 font-semibold uppercase">
-                                <th class="p-3 text-center">No</th>
-                                <th class="p-3">NPSN</th>
-                                <th class="p-3">Nama Sekolah</th>
-                                <th class="p-3">Kecamatan</th>
-                                <th class="p-3">Zonasi Kel/Desa</th>
-                                <th class="p-3 text-center">Laki-Laki</th>
-                                <th class="p-3 text-center">Perempuan</th>
-                                <th class="p-3 text-center">Jumlah</th>
-                                <th class="p-3 text-center">Verval</th>
-                                <th class="p-3 text-center no-print">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table-pd-body" class="text-gray-700 divide-y divide-gray-100"></tbody>
-                    </table>
-                </div>
+            <div id="print-pd" class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-x-auto p-2">
+                <h2 class="text-center font-bold text-sm text-gray-800 mb-3 uppercase tracking-wide hidden print:block">Laporan Rekapitulasi: Data Peserta Didik Kesetaraan 2026</h2>
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200 text-gray-600 font-semibold uppercase">
+                            <th class="p-3 text-center">No</th>
+                            <th class="p-3">NPSN</th>
+                            <th class="p-3">Nama Sekolah</th>
+                            <th class="p-3">Kecamatan</th>
+                            <th class="p-3">Kel/Desa Sasaran</th>
+                            <th class="p-3 text-center">Laki-Laki</th>
+                            <th class="p-3 text-center">Perempuan</th>
+                            <th class="p-3 text-center">Jumlah</th>
+                            <th class="p-3 text-center">Verval</th>
+                            <th class="p-3 text-center no-print">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-pd-body" class="text-gray-700 divide-y divide-gray-100"></tbody>
+                </table>
             </div>
         </section>
 
 
         <section id="tab-e-rapor" class="hidden space-y-4">
-            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
-                <h3 class="text-base md:text-lg font-bold text-gray-800">Data E-Rapor & 8 Standar Nasional Pendidikan</h3>
-                <div class="flex space-x-2 self-end sm:self-auto">
-                    <button onclick="window.print()" class="bg-gray-700 hover:bg-gray-800 text-white px-2.5 py-1.5 rounded text-xs font-medium"><i class="fa-solid fa-print"></i></button>
-                    <button onclick="downloadPDF('print-erapor', 'Data_Capaian_ERapor_SNP')" class="bg-rose-700 hover:bg-rose-800 text-white px-2.5 py-1.5 rounded text-xs font-medium"><i class="fa-solid fa-file-pdf"></i> PDF</button>
-                    <button onclick="openAddModal('modal-erapor', 'form-erapor')" class="bg-rose-600 hover:bg-rose-700 text-white px-3 py-1.5 rounded text-xs font-medium"><i class="fa-solid fa-plus mr-1"></i> Baru</button>
+            <div class="flex justify-between items-center">
+                <h3 class="text-lg font-bold text-gray-800">Capaian Lembaga berdasarkan Program dan Layanan</h3>
+                <div class="flex space-x-2">
+                    <button onclick="window.print()" class="bg-gray-700 hover:bg-gray-800 text-white px-3 py-2 rounded text-xs font-medium"><i class="fa-solid fa-print mr-1"></i> Cetak</button>
+                    <button onclick="downloadPDF('print-erapor', 'Data_Capaian_ERapor_SNP')" class="bg-rose-700 hover:bg-rose-800 text-white px-3 py-2 rounded text-xs font-medium"><i class="fa-solid fa-file-pdf mr-1"></i> Unduh PDF</button>
+                    <button onclick="openAddModal('modal-erapor', 'form-erapor')" class="bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded text-xs font-medium"><i class="fa-solid fa-plus mr-1"></i> Input Data Baru</button>
                 </div>
             </div>
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-x-auto p-2">
-                <div id="print-erapor" class="min-w-[1200px]">
-                    <h2 class="text-center font-bold text-sm text-gray-800 mb-3 uppercase tracking-wide hidden print:block">Laporan Capaian Evaluasi: E-Rapor Dan 8 SNP Lembaga 2026</h2>
-                    <table class="w-full text-left border-collapse text-xs">
-                        <thead>
-                            <tr class="bg-gray-50 border-b border-gray-200 text-gray-600 font-semibold uppercase">
-                                <th class="p-3 text-center" rowspan="2">No</th>
-                                <th class="p-3" rowspan="2">NPSN</th>
-                                <th class="p-3" rowspan="2">Nama Lembaga</th>
-                                <th class="p-3 text-center border-b" colspan="8">Standar Nasional Pendidikan (%)</th>
-                                <th class="p-3 text-center" rowspan="2">Keterisian</th>
-                                <th class="p-3 text-center no-print" rowspan="2">Aksi</th>
-                            </tr>
-                            <tr class="bg-gray-100 text-gray-600 font-medium text-[10px]">
-                                <th class="p-2 border-r">SKL</th>
-                                <th class="p-2 border-r">S.Isi</th>
-                                <th class="p-2 border-r">S.Proses</th>
-                                <th class="p-2 border-r">S.Penilaian</th>
-                                <th class="p-2 border-r">S.PTK</th>
-                                <th class="p-2 border-r">S.Sapras</th>
-                                <th class="p-2 border-r">S.Pengelolaan</th>
-                                <th class="p-2">S.Pembiayaan</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table-erapor-body" class="text-gray-700 divide-y divide-gray-100"></tbody>
-                    </table>
-                </div>
+            <div id="print-erapor" class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-x-auto p-2">
+                <h2 class="text-center font-bold text-sm text-gray-800 mb-3 uppercase tracking-wide hidden print:block">Laporan Capaian Evaluasi: E-Rapor Dan 8 SNP Lembaga 2026</h2>
+                <table class="w-full text-left border-collapse text-xs min-w-[1200px]">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200 text-gray-600 font-semibold uppercase">
+                            <th class="p-3 text-center" rowspan="2">No</th>
+                            <th class="p-3 text-center" rowspan="2">NPSN</th>
+                            <th class="p-3 text-center" rowspan="2">Nama Lembaga</th>
+                            <th class="p-3 text-center" rowspan="2">Alamat</th>
+                            <th class="p-3 text-center border-b" colspan="9">KKNI (Kerangka Kualifikasi Nasional Indonesia) (%)</th>
+                            <th class="p-3 text-center" rowspan="2">Keterisian</th>
+                            <th class="p-3 text-center no-print" rowspan="2">Aksi</th>
+                        </tr>
+                        <tr class="bg-gray-100 text-gray-600 font-medium text-[10px]">
+                            <th class="p-2 border-r">Jen. Op 1</th>
+                            <th class="p-2 border-r">Jen. Op 2</th>
+                            <th class="p-2 border-r">Jen. Op 3</th>
+                            <th class="p-2 border-r">Jen. Tek/Analis 4</th>
+                            <th class="p-2 border-r">Jen. Tek/Analis 5</th>
+                            <th class="p-2 border-r">Jen. Tek/Analis 6</th>
+                            <th class="p-2 border-r">Jen. Ahli 7</th>
+                            <th class="p-2 border-r">Jen. Ahli 8</th>
+                            <th class="p-2 border-r">Jen. Ahli 9</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-erapor-body" class="text-gray-700 divide-y divide-gray-100"></tbody>
+                </table>
             </div>
         </section>
 
     </main>
 
     <div id="modal-akreditasi" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-xl p-5 w-full max-w-md shadow-lg space-y-4 max-h-[90vh] overflow-y-auto">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md shadow-lg space-y-4">
             <h4 id="title-modal-akreditasi" class="text-base font-bold text-gray-800 border-b pb-2">Tambah Data Akreditasi</h4>
             <form id="form-akreditasi" onsubmit="saveAkreditasi(event)" class="space-y-3 text-xs">
                 <div class="grid grid-cols-2 gap-2">
@@ -288,14 +295,14 @@
                 <div><label class="block font-medium mb-1">Nomor SK</label><input type="text" id="akr-sk" class="w-full p-2 border rounded"></div>
                 <div class="flex justify-end space-x-2 pt-3 border-t">
                     <button type="button" onclick="closeModal('modal-akreditasi')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded font-medium">Batal</button>
-                    <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded font-medium">Simpan</button>
+                    <button type="submit" id="btn-submit-akreditasi" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded font-medium">Simpan</button>
                 </div>
             </form>
         </div>
     </div>
 
     <div id="modal-ijin" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-xl p-5 w-full max-w-md shadow-lg space-y-4 max-h-[90vh] overflow-y-auto">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md shadow-lg space-y-4">
             <h4 id="title-modal-ijin" class="text-base font-bold text-gray-800 border-b pb-2">Tambah Data Ijin Operasional</h4>
             <form id="form-ijin" onsubmit="saveIjin(event)" class="space-y-3 text-xs">
                 <div class="grid grid-cols-2 gap-2">
@@ -305,19 +312,20 @@
                 <div><label class="block font-medium mb-1">Alamat</label><input type="text" id="ijin-alamat" required class="w-full p-2 border rounded"></div>
                 <div><label class="block font-medium mb-1">Kepala Sekolah</label><input type="text" id="ijin-kepsek" required class="w-full p-2 border rounded"></div>
                 <div class="grid grid-cols-2 gap-2">
-                    <div><label class="block font-medium mb-1">Tahun Pembuatan</label><input type="number" id="ijin-pembuatan" required class="w-full p-2 border rounded"></div>
-                    <div><label class="block font-medium mb-1">Tahun Berakhir</label><input type="number" id="ijin-berakhir" required class="w-full p-2 border rounded"></div>
+                    <div><label class="block font-medium mb-1">Pembuatan</label><input type="number" id="ijin-pembuatan" required class="w-full p-2 border rounded"></div>
+                    <div><label class="block font-medium mb-1">Berakhir</label><input type="number" id="ijin-berakhir" required class="w-full p-2 border rounded"></div>
                 </div>
-                <div class="flex justify-end space-x-2 pt-3 border-t">
+                 <div><label class="block font-medium mb-1">Nomor SK</label><input type="text" id="akr-sk" class="w-full p-2 border rounded"></div>
+                 <div class="flex justify-end space-x-2 pt-3 border-t">
                     <button type="button" onclick="closeModal('modal-ijin')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded font-medium">Batal</button>
-                    <button type="submit" class="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded font-medium">Simpan</button>
+                    <button type="submit" id="btn-submit-ijin" class="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded font-medium">Simpan</button>
                 </div>
             </form>
         </div>
     </div>
 
     <div id="modal-pd" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-xl p-5 w-full max-w-md shadow-lg space-y-4 max-h-[90vh] overflow-y-auto">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md shadow-lg space-y-4">
             <h4 id="title-modal-pd" class="text-base font-bold text-gray-800 border-b pb-2">Tambah Data Peserta Didik</h4>
             <form id="form-pd" onsubmit="savePD(event)" class="space-y-3 text-xs">
                 <div class="grid grid-cols-2 gap-2">
@@ -337,76 +345,84 @@
                 </div>
                 <div class="flex justify-end space-x-2 pt-3 border-t">
                     <button type="button" onclick="closeModal('modal-pd')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded font-medium">Batal</button>
-                    <button type="submit" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded font-medium">Simpan</button>
+                    <button type="submit" id="btn-submit-pd" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded font-medium">Simpan</button>
                 </div>
             </form>
         </div>
     </div>
 
     <div id="modal-erapor" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-xl p-5 w-full max-w-lg shadow-lg space-y-4 max-h-[90vh] overflow-y-auto">
-            <h4 id="title-modal-erapor" class="text-base font-bold text-gray-800 border-b pb-2">Tambah Data Capaian E-Rapor SNP</h4>
+        <div class="bg-white rounded-xl p-6 w-full max-w-lg shadow-lg space-y-4">
+            <h4 id="title-modal-erapor" class="text-base font-bold text-gray-800 border-b pb-2">Tambah Daftar Program/Layanan Keterampilan Kerja</h4>
             <form id="form-erapor" onsubmit="saveERapor(event)" class="space-y-3 text-xs">
                 <div class="grid grid-cols-2 gap-2">
                     <div><label class="block font-medium mb-1">NPSN</label><input type="text" id="rep-npsn" required class="w-full p-2 border rounded"></div>
                     <div><label class="block font-medium mb-1">Nama Lembaga</label><input type="text" id="rep-nama" required class="w-full p-2 border rounded"></div>
+                    <div><label class="block font-medium mb-1">Alamat</label><input type="text" id="rep-nama" required class="w-full p-2 border rounded"></div>
                 </div>
-                <p class="font-semibold text-gray-700 pt-1">Isi Nilai Standar (%) :</p>
+                <p class="font-semibold text-gray-700 pt-1">Isi Nilai modal-kkni (%) & Keterisian :</p>
                 <div class="grid grid-cols-4 gap-2">
-                    <div><label class="block font-medium mb-1">SKL</label><input type="number" id="s-skl" min="0" max="100" required class="w-full p-2 border rounded"></div>
-                    <div><label class="block font-medium mb-1">S. Isi</label><input type="number" id="s-isi" min="0" max="100" required class="w-full p-2 border rounded"></div>
-                    <div><label class="block font-medium mb-1">S. Proses</label><input type="number" id="s-pro" min="0" max="100" required class="w-full p-2 border rounded"></div>
-                    <div><label class="block font-medium mb-1">S. Penilaian</label><input type="number" id="s-pen" min="0" max="100" required class="w-full p-2 border rounded"></div>
-                    <div><label class="block font-medium mb-1">S. PTK</label><input type="number" id="s-ptk" min="0" max="100" required class="w-full p-2 border rounded"></div>
-                    <div><label class="block font-medium mb-1">S. Sapras</label><input type="number" id="s-sap" min="0" max="100" required class="w-full p-2 border rounded"></div>
-                    <div><label class="block font-medium mb-1">S. Kelola</label><input type="number" id="s-man" min="0" max="100" required class="w-full p-2 border rounded"></div>
-                    <div><label class="block font-medium mb-1">S. Biaya</label><input type="number" id="s-bia" min="0" max="100" required class="w-full p-2 border rounded"></div>
+                    <div><label class="block font-medium mb-1">jop1</label><input type="number" id="jop1" min="0" max="100" required class="w-full p-2 border rounded"></div>
+                    <div><label class="block font-medium mb-1">jop2</label><input type="number" id="jop2" min="0" max="100" required class="w-full p-2 border rounded"></div>
+                    <div><label class="block font-medium mb-1">jop3</label><input type="number" id="s-pro" min="0" max="100" required class="w-full p-2 border rounded"></div>
+                    <div><label class="block font-medium mb-1">jta4</label><input type="number" id="s-pen" min="0" max="100" required class="w-full p-2 border rounded"></div>
+                    <div><label class="block font-medium mb-1">Jen. Teknis/Analis 5</label><input type="number" id="s-ptk" min="0" max="100" required class="w-full p-2 border rounded"></div>
+                    <div><label class="block font-medium mb-1">Jen. Teknis/Analis 6</label><input type="number" id="s-sap" min="0" max="100" required class="w-full p-2 border rounded"></div>
+                    <div><label class="block font-medium mb-1">Jen. Ahli 7</label><input type="number" id="s-man" min="0" max="100" required class="w-full p-2 border rounded"></div>
+                    <div><label class="block font-medium mb-1">Jen. Ahli 8</label><input type="number" id="s-bia" min="0" max="100" required class="w-full p-2 border rounded"></div>
+                    <div><label class="block font-medium mb-1">Jen. Ahli 9</label><input type="number" id="s-bia" min="0" max="100" required class="w-full p-2 border rounded"></div>
                 </div>
                 <div>
-                    <label class="block font-medium mb-1">Status Keterisian E-Rapor</label>
+                    <label class="block font-medium mb-1">Status Keterisian KKNI</label>
                     <select id="rep-keterisian" class="w-full p-2 border rounded bg-gray-50 font-semibold text-gray-800">
-                        <option value="LENGKAP">LENGKAP</option>
-                        <option value="BELUM LENGKAP">BELUM LENGKAP</option>
+                        <option value="LENGKAP">LEVEL</option>
+                        <option value="BELUM LENGKAP">BELUM LEVEL</option>
                     </select>
                 </div>
                 <div class="flex justify-end space-x-2 pt-3 border-t">
                     <button type="button" onclick="closeModal('modal-erapor')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded font-medium">Batal</button>
-                    <button type="submit" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded font-medium">Simpan</button>
+                    <button type="submit" id="btn-submit-erapor" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded font-medium">Simpan</button>
                 </div>
             </form>
         </div>
     </div>
 
     <script>
-        // --- DATA SATUAN PENDIDIKAN REALISTIS ---
+        // --- 35 DATA SATUAN PENDIDIKAN REALISTIS ---
         let dataAkreditasi = [
-            { npsn: 'P2963449', nama: 'PKBM MEKAR BUANA', alamat: 'Jl. Angkrek No.98, Kotakaler', kepsek: 'EGI ZAENAL MUTAQIEN', grade: 'B', tahun: 2022, akhir: 2027, sk: 'No SK: 121/BAN-PDM/2022' },
-            { npsn: 'P9934726', nama: 'PKBM PASCA MARGA', alamat: 'Jl. KLK No.72, Rancamulya', kepsek: 'DEDEH KURAESIN', grade: 'B', tahun: 2025, akhir: 2030, sk: 'No SK: 602/BAN-PDM/2025' },
-            { npsn: 'P9952581', nama: 'PKBM MULYASARI SEJATI', alamat: 'Dsn. Kadapugur, Desa Mulyasari', kepsek: 'GRACY MEILANITA', grade: 'A', tahun: 2024, akhir: 2029, sk: 'No SK: 120/BAN-PDM/2024' },
-            { npsn: 'P9999789', nama: 'PKBM AL-AMANAH', alamat: 'Jl. Angkrek Gg. Karyawan II, Situ', kepsek: 'DEDI MUHAMMAD ISHAK', grade: 'C', tahun: 2023, akhir: 2028, sk: 'No SK: 442/BAN-PDM/2023' },
-            { npsn: 'P9984783', nama: 'PKBM MENTARI MADANI', alamat: 'Perum Jatihurip Blok 9, Jatihurip', kepsek: 'YANA SATRIANA', grade: 'B', tahun: 2025, akhir: 2030, sk: 'No SK: 605/BAN-PDM/2025' },
-            { npsn: 'P9911101', nama: 'PKBM SEJAHTERA UTARA', alamat: 'Jl. Prabu Gajah Agung, Regol', kepsek: 'AHMAD BUDIMAN', grade: 'A', tahun: 2024, akhir: 2029, sk: 'No SK: 189/BAN-PDM/2024' }
+            { npsn: 'P2963449', nama: 'LKP Family English Course (FEC)', alamat: 'Jl. Raya Jatinangor No. 297 Desa Hegarmanah Kec. Jatinangor', kepsek: 'Dra. SEKARWATI', grade: 'Belum', tahun: 0, akhir: 0, sk: 'No SK: - (Bukan Program Kesetaraan)' },
+            { npsn: 'P9934726', nama: 'LKP GANESHA PRATAMA', alamat: 'Jalan P. Santri No. 78 Kel. Kota kulon Kec. Sumedang Utara', kepsek: 'M. ARWAN AZIZ, ST', grade: 'B', tahun: 2019, akhir: 2024, sk: 'NO SK; 153/BAN PAUD DAN PNF/AKR/2019' },
+            { npsn: 'P9952581', nama: 'LKP Komputer Dan Manajemen Actual ( LPKMA )', alamat: 'Jl. P. Geusan Ulun No. 123 Kel. Kota Kulon Kec. sumedang Selatan', kepsek: 'Hj. ETI RUSMTATY, SE.,M.M', grade: 'B', tahun: 2015, akhir: 2020, sk: 'NO SK; 038/K.1/SK/AKR/2015' },
+            { npsn: 'P9999789', nama: 'LKP Puji Lestari', alamat: 'Jl. P Geusan Ulun No. 50 B RT 04 / RW 05 Kel. Regolwetan kec. Sumedang selatan', kepsek: '-', grade: 'C', tahun: 0, akhir: 0, sk: 'NO SK;- (Bukan Program Kesetaraan)' },
+            { npsn: 'P9984783', nama: 'LKP Yani 43 Sumedang', alamat: 'Jl. Pendopo No. 17 Talun Rt 02 Rw 07 Kel. Talun Kec. Sumedang Utara', kepsek: 'KHALID INSAN TAUHID', grade: 'C', tahun: 2014, akhir: 2019, sk: 'NO SK;- (Bukan Program Kesetaraan)' },
+            { npsn: 'K5659762', nama: 'LKP Prestatif', alamat: 'Jl. Raya Cibeureum Wetan No. 422 Rt.01/05 Kec. Cimalaka', kepsek: 'ATI ROHAETI, M.Pd', grade: 'B', tahun: 2016, akhir: 2021, sk: 'NO SK;- (Bukan Program Kesetaraan)' },
         ];
 
         let dataIjin = [
-            { npsn: 'P2963449', nama: 'PKBM MEKAR BUANA', alamat: 'Jl. Angkrek No.98, Kotakaler', kepsek: 'EGI ZAENAL MUTAQIEN', pembuatan: 2021, berakhir: 2026 },
-            { npsn: 'P9934726', nama: 'PKBM PASCA MARGA', alamat: 'Jl. KLK No.72, Rancamulya', kepsek: 'DEDEH KURAESIN', pembuatan: 2022, berakhir: 2027 },
-            { npsn: 'P9952581', nama: 'PKBM MULYASARI SEJATI', alamat: 'Dsn. Kadapugur, Desa Mulyasari', kepsek: 'GRACY MEILANITA', pembuatan: 2023, berakhir: 2028 },
-            { npsn: 'P9999789', nama: 'PKBM AL-AMANAH', alamat: 'Jl. Angkrek Gg. Karyawan II, Situ', kepsek: 'DEDI MUHAMMAD ISHAK', pembuatan: 2024, berakhir: 2029 }
+            { npsn: 'K5659720', nama: 'LKP Family English Course (FEC)', alamat: 'Jl. Raya Jatinangor No. 297 Desa Hegarmanah Kec. Jatinangor', kepsek: 'Dra. SEKARWATI', pembuatan : 0, berakhir : 0, sk: 'No SK: - ' },
+            { npsn: 'K5659720', nama: 'LKP GANESHA PRATAMA', alamat: 'Jalan P. Santri No. 78 Kel. Kota kulon Kec. Sumedang Utara', kepsek: '-', pembuatan : 0, berakhir : 0, sk: 'No SK: - ' },
+            { npsn: 'K5659729', nama: 'LKP Komputer Dan Manajemen Actual ( LPKMA )', alamat: 'Jl. P. Geusan Ulun No. 123 Kel. Kota Kulon Kec. sumedang Selatan', kepsek: 'Hj. ETI RUSMTATY, SE.,M.M', pembuatan : 0, berakhir : 0, sk: 'No SK: 0160 TA 2026' },
+            { npsn: 'K5659731', nama: 'LKP Puji Lestari', alamat: 'Jl. P Geusan Ulun No. 50 B RT 04 / RW 05 Kel. Regolwetan kec. Sumedang selatan', kepsek: '-', pembuatan : 0, berakhir : 0, sk: 'No SK: - ' },
+            { npsn: 'K5659740', nama: 'LKP Yani 43 Sumedang', alamat: 'Jl. Pendopo No. 17 Talun Rt 02 Rw 07 Kel. Talun Kec. Sumedang Utara', kepsek: '-', pembuatan : 2026, berakhir : 2029, sk: 'No SK: 0156 TA 202 ' },
+            { npsn: 'K5659762', nama: 'LKP Prestatif', alamat: 'Jl. Raya Cibeureum Wetan No. 422 Rt.01/05 Kec. Cimalaka', kepsek: 'ATI ROHAETI, M.Pd', pembuatan : 2026, berakhir : 2029, sk: 'No SK: 0162 Tahun 2026 ' },
         ];
-
+        
         let dataPD = [
-            { npsn: 'P2963449', nama: 'PKBM MEKAR BUANA', kec: 'Sumedang Utara', desa: 'Kotakaler', l: 25, p: 20, verval: 'Sudah' },
-            { npsn: 'P9934726', nama: 'PKBM PASCA MARGA', kec: 'Sumedang Utara', desa: 'Rancamulya', l: 15, p: 30, verval: 'Belum' },
-            { npsn: 'P9952581', nama: 'PKBM MULYASARI SEJATI', kec: 'Sumedang Utara', desa: 'Mulyasari', l: 42, p: 38, verval: 'Sudah' },
-            { npsn: 'P9999789', nama: 'PKBM AL-AMANAH', kec: 'Sumedang Utara', desa: 'Situ', l: 18, p: 12, verval: 'Belum' }
+            { npsn: 'K5659720', nama: 'LKP Family English Course (FEC)', kec: 'Sumedang Utara', desa: 'Hegarmanah', l: 0, p: 0, verval: 'Belum' },
+            { npsn: 'K5667263', nama: 'LKP GANESHA PRATAMA', kec: 'Sumedang Selatan', desa: 'Kota Kulon', l: 0, p: 0, verval: 'Belum' },
+            { npsn: 'K5659729', nama: 'LKP Komputer Dan Manajemen Actual ( LPKMA )', kec: 'Sumedang Selatan', desa: 'Kota Kulon', l: 0, p: 0, verval: 'Belum' },
+            { npsn: 'K5659731', nama: 'LKP Puji Lestari', kec: 'Sumedang Selatan', desa: 'Kota Kulon', l: 0, p: 0, verval: 'Belum' },
+            { npsn: 'K5659740', nama: 'LKP Yani 43 Sumedang', kec: 'Sumedang Utara', desa: 'Talun', l: 0, p: 0, verval: 'Belum' },
+            { npsn: 'K5659762', nama: 'LKP Prestatif', kec: 'Cimalaka', desa: 'Cibeureum', l: 0, p: 0, verval: 'Belum' },
         ];
 
         let dataERapor = [
-            { npsn: 'P2963449', nama: 'PKBM MEKAR BUANA', skl: 85, isi: 80, pro: 75, pen: 80, ptk: 65, sap: 70, man: 80, bia: 85, keterisian: 'LENGKAP' },
-            { npsn: 'P9934726', nama: 'PKBM PASCA MARGA', skl: 60, isi: 55, pro: 48, pen: 70, ptk: 40, sap: 65, man: 55, bia: 60, keterisian: 'BELUM LENGKAP' },
-            { npsn: 'P9952581', nama: 'PKBM MULYASARI SEJATI', skl: 92, isi: 90, pro: 88, pen: 90, ptk: 85, sap: 80, man: 90, bia: 95, keterisian: 'LENGKAP' },
-            { npsn: 'P9999789', nama: 'PKBM AL-AMANAH', skl: 65, isi: 60, pro: 55, pen: 68, ptk: 50, sap: 58, man: 60, bia: 62, keterisian: 'LENGKAP' }
+            { npsn: 'K5659720', nama: 'LKP Family English Course (FEC)', alamat: 'Jl. Raya Jatinangor No. 297 Desa Hegarmanah Kec. Jatinangor', jop1: 100, jop2: 0, jop3: 0, jop3: 0, jta4: 0, jta5: 0, jta6: 0, ja7: 0, ja8: 0, ja9: 0, keterisian: 'LEVEL' },
+            { npsn: 'K5667263', nama: 'LKP GANESHA PRATAMA', alamat: 'Jalan P. Santri No. 78 Kel. Kota kulon Kec. Sumedang Utara', jop1: 100, jop2: 100, jop3: 0, jop3: 0, jta4: 0, jta5: 0, jta6: 0, ja7: 0, ja8: 0, ja9: 0, keterisian: 'LEVEL' },
+            { npsn: 'K5659729', nama: 'LKP Komputer Dan Manajemen Actual ( LPKMA )', alamat: 'Jl. P. Geusan Ulun No. 123 Kel. Kota Kulon Kec. sumedang Selatan', jop1: 100, jop2: 0, jop3: 0, jop3: 0, jta4: 0, jta5: 0, jta6: 0, ja7: 0, ja8: 0, ja9: 0, keterisian: 'LEVEL' },
+            { npsn: 'K5659731', nama: 'LKP Puji Lestari', alamat: 'Jl. P Geusan Ulun No. 50 B RT 04 / RW 05 Kel. Regolwetan kec. Sumedang selatan', jop1: 100, jop2: 100, jop3: 0, jop3: 0, jta4: 0, jta5: 0, jta6: 0, ja7: 0, ja8: 0, ja9: 0, keterisian: 'LEVEL' },
+            { npsn: 'K5659740', nama: 'LKP Yani 43 Sumedang', alamat: 'Jl. Pendopo No. 17 Talun Rt 02 Rw 07 Kel. Talun Kec. Sumedang Utara', jop1: 100, jop2: 100, jop3: 0, jop3: 0, jta4: 0, jta5: 0, jta6: 0, ja7: 0, ja8: 0, ja9: 0, keterisian: 'LEVEL' },
+            { npsn: 'K5659762', nama: 'LKP Prestatif', alamat: 'Jl. Raya Cibeureum Wetan No. 422 Rt.01/05 Kec. Cimalaka', jop1: 100, jop2: 100, jop3: 100, jop3: 0, jta4: 0, jta5: 0, jta6: 0, ja7: 0, ja8: 0, ja9: 0, keterisian: 'LEVEL' },
         ];
 
         let editIndexAkreditasi = null, editIndexIjin = null, editIndexPD = null, editIndexERapor = null;
@@ -421,7 +437,6 @@
             document.getElementById(`tab-${tabId}`).classList.remove('hidden');
             document.getElementById(`nav-${tabId}`).className = "px-3 py-2 rounded text-xs font-medium transition bg-blue-600 text-white";
             
-            // Setiap kali kembali ke beranda, refresh total kalkulasi
             if(tabId === 'beranda') renderDashboard();
         }
 
@@ -469,20 +484,34 @@
                 html2canvas:  { scale: 2, useCORS: true },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' }
             };
-            html2pdf().set(opt).from(element).save();
+
+            const actionButtons = element.querySelectorAll('.no-print');
+            actionButtons.forEach(btn => btn.style.display = 'none');
+            
+            const printTitle = element.querySelector('.print\\:block');
+            if(printTitle) printTitle.style.display = 'block';
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                actionButtons.forEach(btn => btn.style.display = '');
+                if(printTitle) printTitle.style.display = '';
+            });
         }
 
+        // Fungsi khusus unduh PDF Beranda (Menggabungkan Header Banner + Rangkuman Statistik)
         function downloadDashboardPDF() {
+            // Membuat kontainer sementara untuk menampung elemen yang akan di-PDF-kan
             const element = document.createElement('div');
             element.style.padding = '20px';
             element.style.background = '#f9fafb';
 
+            // Clone Header & Area Utama Beranda
             const headerClone = document.getElementById('main-header').cloneNode(true);
             const contentClone = document.getElementById('print-area-dashboard').cloneNode(true);
 
             element.appendChild(headerClone);
             element.appendChild(contentClone);
 
+            // Sembunyikan elemen berkategori no-print dari berkas PDF hasil render
             const noPrintElements = element.querySelectorAll('.no-print');
             noPrintElements.forEach(el => el.remove());
 
@@ -493,13 +522,8 @@
                 html2canvas:  { scale: 1.5, useCORS: true },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' }
             };
-            html2pdf().set(opt).from(element).save();
-        }
 
-        // --- ONE-WAY DATA MUTATION & SYNCHRONIZATION (Satu Arah) ---
-        function syncAndRefreshAll() {
-            renderTables();
-            renderDashboard();
+            html2pdf().set(opt).from(element).save();
         }
 
         // --- DATA RENDERING IN TABLES ---
@@ -522,7 +546,9 @@
                         <td class="p-3 border-b text-gray-600">${d.kepsek}</td>
                         <td class="p-3 border-b text-center"><span class="px-2 py-0.5 rounded ${gradeBadge}">${d.grade}</span></td>
                         <td class="p-3 border-b text-center font-medium">${d.tahun}</td>
-                        <td class="p-3 border-b text-center"><span class="px-3 py-1 rounded-md ${getYearColorBadgeClass(d.akhir)}">${d.akhir}</span></td>
+                        <td class="p-3 border-b text-center">
+                            <span class="px-3 py-1 rounded-md ${getYearColorBadgeClass(d.akhir)}">${d.akhir}</span>
+                        </td>
                         <td class="p-3 border-b text-gray-400 font-mono text-[11px]">${d.sk}</td>
                         <td class="p-3 border-b text-center whitespace-nowrap no-print">
                             <button onclick="editAkreditasi(${index})" class="text-blue-600 hover:text-blue-900 bg-blue-50 px-2 py-1 rounded mr-1"><i class="fa-solid fa-pen-to-square"></i></button>
@@ -542,7 +568,10 @@
                     <td class="p-3 border-b max-w-xs truncate">${d.alamat}</td>
                     <td class="p-3 border-b text-gray-600">${d.kepsek}</td>
                     <td class="p-3 border-b text-center font-medium">${d.pembuatan}</td>
-                    <td class="p-3 border-b text-center"><span class="px-3 py-1 rounded-md ${getYearColorBadgeClass(d.berakhir)}">${d.berakhir}</span></td>
+                    <td class="p-3 border-b text-center">
+                        <span class="px-3 py-1 rounded-md ${getYearColorBadgeClass(d.berakhir)}">${d.berakhir}</span>
+                    </td>
+                    <td class="p-3 border-b text-gray-400 font-mono text-[11px]">${d.sk}</td>
                     <td class="p-3 border-b text-center whitespace-nowrap no-print">
                         <button onclick="editIjin(${index})" class="text-blue-600 hover:text-blue-900 bg-blue-50 px-2 py-1 rounded mr-1"><i class="fa-solid fa-pen-to-square"></i></button>
                         <button onclick="deleteRow('ijin', ${index})" class="text-rose-600 hover:text-rose-900 bg-rose-50 px-2 py-1 rounded"><i class="fa-solid fa-trash"></i></button>
@@ -550,7 +579,7 @@
                 </tr>
             `).join('');
 
-            // 3. Table Peserta Didik
+            // 3. Table Peserta Didik (Zonasi Desa Berwarna Merah)
             const pdBody = document.getElementById('table-pd-body');
             pdBody.innerHTML = dataPD.map((d, index) => `
                 <tr class="hover:bg-gray-50 transition">
@@ -579,16 +608,18 @@
                     <td class="p-3 border-b text-left font-medium">${index + 1}</td>
                     <td class="p-3 border-b text-left text-blue-600 font-medium">${d.npsn}</td>
                     <td class="p-3 border-b text-left font-semibold">${d.nama}</td>
-                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.skl)}">${d.skl}%</span></td>
-                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.isi)}">${d.isi}%</span></td>
-                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.pro)}">${d.pro}%</span></td>
-                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.pen)}">${d.pen}%</span></td>
-                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.ptk)}">${d.ptk}%</span></td>
-                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.sap)}">${d.sap}%</span></td>
-                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.man)}">${d.man}%</span></td>
-                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.bia)}">${d.bia}%</span></td>
+                    <td class="p-3 border-b text-left font-semibold">${d.alamat}</td>
+                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.jop1)}">${d.jop1}%</span></td>
+                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.jop2)}">${d.jop2}%</span></td>
+                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.jop3)}">${d.jop3}%</span></td>
+                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.jta4)}">${d.jta4}%</span></td>
+                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.jta5)}">${d.jta5}%</span></td>
+                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.jta6)}">${d.jta6}%</span></td>
+                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.ja7)}">${d.ja7}%</span></td>
+                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.ja8)}">${d.ja8}%</span></td>
+                    <td class="p-2 border-b"><span class="px-1.5 py-0.5 block rounded text-[11px] font-bold ${getSnpBadgeClass(d.ja9)}">${d.ja9}%</span></td>
                     <td class="p-3 border-b">
-                        <span class="px-2 py-1 rounded text-[10px] font-extrabold ${d.keterisian === 'LENGKAP' ? 'bg-emerald-600 text-white':'bg-rose-600 text-white'}">${d.keterisian || 'LENGKAP'}</span>
+                        <span class="px-2 py-1 rounded text-[10px] font-extrabold ${d.keterisian === 'LEVEL' ? 'bg-emerald-600 text-white':'bg-rose-600 text-white'}">${d.keterisian || 'LEVEL'}</span>
                     </td>
                     <td class="p-3 border-b text-center whitespace-nowrap no-print">
                         <button onclick="editERapor(${index})" class="text-blue-600 hover:text-blue-900 bg-blue-50 px-2 py-1 rounded mr-1"><i class="fa-solid fa-pen-to-square"></i></button>
@@ -598,7 +629,7 @@
             `).join('');
         }
 
-        // --- EDIT CONTROLLERS ---
+        // --- CONTROLLERS FOR FORM ACTIONS (DIABAIKAN - SAMA SEPERTI KODE SEBELUMNYA) ---
         function editAkreditasi(index) {
             editIndexAkreditasi = index;
             const item = dataAkreditasi[index];
@@ -644,22 +675,22 @@
         function editERapor(index) {
             editIndexERapor = index;
             const item = dataERapor[index];
-            document.getElementById('title-modal-erapor').innerText = "Edit Nilai SNP - " + item.nama;
+            document.getElementById('title-modal-erapor').innerText = "Edit Nilai KKNI - " + item.nama;
             document.getElementById('rep-npsn').value = item.npsn;
             document.getElementById('rep-nama').value = item.nama;
-            document.getElementById('s-skl').value = item.skl;
-            document.getElementById('s-isi').value = item.isi;
-            document.getElementById('s-pro').value = item.pro;
-            document.getElementById('s-pen').value = item.pen;
-            document.getElementById('s-ptk').value = item.ptk;
-            document.getElementById('s-sap').value = item.sap;
-            document.getElementById('s-man').value = item.man;
-            document.getElementById('s-bia').value = item.bia;
-            document.getElementById('rep-keterisian').value = item.keterisian || 'LENGKAP';
-            openModal('modal-erapor');
+            document.getElementById('j-op1').value = item.jop1;
+            document.getElementById('j-op2').value = item.jop2;
+            document.getElementById('j-op3').value = item.jop3;
+            document.getElementById('j-ta4').value = item.jta4;
+            document.getElementById('j-ta5').value = item.jta5;
+            document.getElementById('j-ta6').value = item.jta6;
+            document.getElementById('j-ta7').value = item.ja7;
+            document.getElementById('j-ta8').value = item.ja8;
+            document.getElementById('j-ta9').value = item.ja9;
+            document.getElementById('rep-keterisian').value = item.keterisian || 'LEVEL';
+            openModal('modal-kkni');
         }
 
-        // --- SAVE FORM DATA ACTIONS ---
         function saveAkreditasi(e) {
             e.preventDefault();
             const gradeVal = document.getElementById('akr-grade').value;
@@ -676,7 +707,7 @@
             if (editIndexAkreditasi !== null) dataAkreditasi[editIndexAkreditasi] = payload;
             else dataAkreditasi.push(payload);
             closeModal('modal-akreditasi');
-            syncAndRefreshAll();
+            renderTables();
         }
 
         function saveIjin(e) {
@@ -692,7 +723,7 @@
             if (editIndexIjin !== null) dataIjin[editIndexIjin] = payload;
             else dataIjin.push(payload);
             closeModal('modal-ijin');
-            syncAndRefreshAll();
+            renderTables();
         }
 
         function savePD(e) {
@@ -709,7 +740,7 @@
             if (editIndexPD !== null) dataPD[editIndexPD] = payload;
             else dataPD.push(payload);
             closeModal('modal-pd');
-            syncAndRefreshAll();
+            renderTables();
         }
 
         function saveERapor(e) {
@@ -717,20 +748,21 @@
             const payload = {
                 npsn: document.getElementById('rep-npsn').value,
                 nama: document.getElementById('rep-nama').value.toUpperCase(),
-                skl: parseInt(document.getElementById('s-skl').value) || 0,
-                isi: parseInt(document.getElementById('s-isi').value) || 0,
-                pro: parseInt(document.getElementById('s-pro').value) || 0,
-                pen: parseInt(document.getElementById('s-pen').value) || 0,
-                ptk: parseInt(document.getElementById('s-ptk').value) || 0,
-                sap: parseInt(document.getElementById('s-sap').value) || 0,
-                man: parseInt(document.getElementById('s-man').value) || 0,
-                bia: parseInt(document.getElementById('s-bia').value) || 0,
+                skl: parseInt(document.getElementById('j-Op1').value) || 0,
+                isi: parseInt(document.getElementById('j-Op2').value) || 0,
+                pro: parseInt(document.getElementById('J-Op3').value) || 0,
+                pen: parseInt(document.getElementById('J-TA4').value) || 0,
+                ptk: parseInt(document.getElementById('J.TA5').value) || 0,
+                sap: parseInt(document.getElementById('J-TA6').value) || 0,
+                man: parseInt(document.getElementById('J-A7').value) || 0,
+                bia: parseInt(document.getElementById('J-A8').value) || 0,
+                bia: parseInt(document.getElementById('J-A9').value) || 0,
                 keterisian: document.getElementById('rep-keterisian').value
             };
             if (editIndexERapor !== null) dataERapor[editIndexERapor] = payload;
             else dataERapor.push(payload);
             closeModal('modal-erapor');
-            syncAndRefreshAll();
+            renderTables();
         }
 
         function deleteRow(type, index) {
@@ -739,19 +771,14 @@
                 if(type === 'ijin') dataIjin.splice(index, 1);
                 if(type === 'pd') dataPD.splice(index, 1);
                 if(type === 'rep') dataERapor.splice(index, 1);
-                syncAndRefreshAll();
+                renderTables();
+                if(!document.getElementById('tab-beranda').classList.contains('hidden')) renderDashboard();
             }
         }
 
-        // --- DASHBOARD CHARTS SYSTEM (ONE-WAY DATA RENDERING) ---
+        // --- DASHBOARD CHARTS SYSTEM ---
         function renderDashboard() {
-            // Menyatukan database NPSN agar valid secara relasional
-            const totalLembaga = [...new Set([
-                ...dataAkreditasi.map(d => d.npsn), 
-                ...dataIjin.map(d => d.npsn), 
-                ...dataPD.map(d => d.npsn), 
-                ...dataERapor.map(d => d.npsn)
-            ])].length;
+            const totalLembaga = [...new Set([...dataAkreditasi.map(d=>d.npsn), ...dataPD.map(d=>d.npsn)])].length;
             document.getElementById('stat-total-lembaga').innerText = totalLembaga;
 
             let totalL = 0, totalP = 0, sudahVerval = 0, belumVerval = 0;
@@ -771,7 +798,6 @@
             let akrCounts = { 'A': 0, 'B': 0, 'C': 0, 'TT': 0, 'Belum': 0 };
             dataAkreditasi.forEach(d => { if(akrCounts[d.grade] !== undefined) akrCounts[d.grade]++; });
 
-            // Chart Akreditasi
             if(chartAkreditasiInstance) chartAkreditasiInstance.destroy();
             chartAkreditasiInstance = new Chart(document.getElementById('chartAkreditasi'), {
                 type: 'bar',
@@ -786,7 +812,6 @@
                 options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
             });
 
-            // Chart Gender
             if(chartGenderInstance) chartGenderInstance.destroy();
             chartGenderInstance = new Chart(document.getElementById('chartGender'), {
                 type: 'doughnut',
@@ -794,10 +819,9 @@
                     labels: ['Laki-Laki', 'Perempuan'],
                     datasets: [{ data: [totalL, totalP], backgroundColor: ['#3b82f6', '#ec4899'] }]
                 },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 9 } } } } }
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 11, font: { size: 10 } } } } }
             });
 
-            // Chart Verval
             if(chartVervalInstance) chartVervalInstance.destroy();
             chartVervalInstance = new Chart(document.getElementById('chartVerval'), {
                 type: 'doughnut',
@@ -805,10 +829,10 @@
                     labels: ['Sudah Verval', 'Belum Verval'],
                     datasets: [{ data: [sudahVerval, belumVerval], backgroundColor: ['#10b981', '#fb923c'] }]
                 },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 9 } } } } }
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 11, font: { size: 10 } } } } }
             });
 
-            // Rata-rata 8 SNP SKB/PKBM
+            // LOGIK KONSOLIDASI RATA-RATA 8 STANDAR NASIONAL PENDIDIKAN
             let avgSnp = [0, 0, 0, 0, 0, 0, 0, 0];
             if(dataERapor.length > 0) {
                 dataERapor.forEach(d => {
@@ -818,26 +842,45 @@
                 avgSnp = avgSnp.map(sum => Math.round(sum / dataERapor.length));
             }
 
-            const delapanWarnaSnp = ['#3b82f6', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6', '#06b6d4', '#f97316', '#64748b'];
+            // MODIFIKASI: Menggunakan 8 warna unik yang berbeda untuk tiap standar pendidikan
+            const delapanWarnaSnp = [
+                '#3b82f6', // J.Op1 - Blue
+                '#10b981', // J.Op2 - Emerald
+                '#f59e0b', // J.Op3 - Amber
+                '#ec4899', // J.TA4 - Pink
+                '#8b5cf6', // J.TA5 - Purple
+                '#06b6d4', // J.TA6 - Cyan
+                '#f97316', // J.A7 - Orange
+                '#64748b'  // J.A8 - Slate
+            ];
 
             if(chartSNPInstance) chartSNPInstance.destroy();
             chartSNPInstance = new Chart(document.getElementById('chartSNP'), {
                 type: 'bar',
                 data: {
-                    labels: ['SKL', 'S. Isi', 'S. Proses', 'S. Penilaian', 'S. PTK', 'S. Sapras', 'S. Pengelolaan', 'S. Pembiayaan'],
-                    datasets: [{ data: avgSnp, backgroundColor: delapanWarnaSnp, borderRadius: 5 }]
+                    labels: ['J.Op1', 'J.Op2', 'J.Op3', 'J.Ta4', 'J.Ta5', 'J.Ta6', 'J.A7', 'J.A8', 'J.A9'],
+                    datasets: [{ 
+                        data: avgSnp, 
+                        backgroundColor: delapanWarnaSnp, // Penerapan array warna unik
+                        borderRadius: 5 
+                    }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: { y: { min: 0, max: 100, ticks: { callback: value => value + '%' } } }
+                    plugins: { 
+                        legend: { display: false } // Sembunyikan legenda karena label sudah tertera di bawah batang grafik
+                    },
+                    scales: { 
+                        y: { min: 0, max: 100, ticks: { callback: value => value + '%' } } 
+                    }
                 }
             });
         }
 
         window.onload = function() {
-            syncAndRefreshAll();
+            renderTables();
+            renderDashboard();
         };
     </script>
 </body>
