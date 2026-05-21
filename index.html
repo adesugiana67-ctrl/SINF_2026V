@@ -3,451 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DISDIK SUMEDANG - Sistem Penjaminan Mutu</title>
+    <title>DISDIK SUMEDANG - Sistem Penjaminan Mutu Non Formal</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100 font-sans antialiased">
+<body class="bg-gray-100 font-sans antialiased text-gray-800">
 
-    <header class="bg-slate-900 text-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-            <div class="flex items-center space-x-3">
-                <div class="bg-amber-500 text-slate-900 font-bold p-2 rounded text-xs leading-tight">
+    <header class="bg-slate-900 text-white shadow-md sticky top-0 z-50 non-printable">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center py-3 md:h-16 gap-3">
+            <div class="flex items-center space-x-3 self-start md:self-center">
+                <div class="bg-amber-500 text-slate-900 font-bold p-2 rounded text-xs leading-tight text-center">
                     DISDIK<br>SMD
                 </div>
                 <div>
-                    <h1 class="text-sm font-bold tracking-wider">DISDIK SUMEDANG</h1>
-                    <p class="text-xs text-gray-400">Sistem Penjaminan Mutu 2026</p>
+                    <h1 class="text-sm font-bold tracking-wider">DISDIK KABUPATEN SUMEDANG</h1>
+                    <p class="text-xs text-gray-400">Sistem Informasi Penjaminan Mutu LKP & PNF 2026</p>
                 </div>
             </div>
             
-            <nav class="flex space-x-1 text-xs font-medium">
-                <button onclick="switchTab('beranda')" id="nav-beranda" class="nav-btn px-3 py-2 rounded bg-blue-600 text-white">Beranda</button>
-                <button onclick="switchTab('akreditasi')" id="nav-akreditasi" class="nav-btn px-3 py-2 rounded text-gray-300 hover:bg-slate-800 hover:text-white">Data Akreditasi</button>
-                <button onclick="switchTab('operasional')" id="nav-operasional" class="nav-btn px-3 py-2 rounded text-gray-300 hover:bg-slate-800 hover:text-white">Ijin Operasional</button>
-                <button onclick="switchTab('peserta')" id="nav-peserta" class="nav-btn px-3 py-2 rounded text-gray-300 hover:bg-slate-800 hover:text-white">Data PD Bentuk/Jenis Pendidikan</button>
-                <button onclick="switchTab('program')" id="nav-program" class="nav-btn px-3 py-2 rounded text-gray-300 hover:bg-slate-800 hover:text-white">Daftar Program/Layanan Keterampilan Kerja</button>
+            <nav class="flex flex-wrap gap-1 text-[11px] font-medium w-full md:w-auto justify-start md:justify-end">
+                <button onclick="switchTab('beranda')" id="nav-beranda" class="nav-btn px-3 py-2 rounded bg-blue-600 text-white transition">Beranda</button>
+                <button onclick="switchTab('akreditasi')" id="nav-akreditasi" class="nav-btn px-3 py-2 rounded text-gray-300 hover:bg-slate-800 hover:text-white transition">Data Akreditasi</button>
+                <button onclick="switchTab('operasional')" id="nav-operasional" class="nav-btn px-3 py-2 rounded text-gray-300 hover:bg-slate-800 hover:text-white transition">Ijin Operasional</button>
+                <button onclick="switchTab('peserta')" id="nav-peserta" class="nav-btn px-3 py-2 rounded text-gray-300 hover:bg-slate-800 hover:text-white transition">Data PD Jenis Pendidikan</button>
+                <button onclick="switchTab('program')" id="nav-program" class="nav-btn px-3 py-2 rounded text-gray-300 hover:bg-slate-800 hover:text-white transition">Daftar Layanan Kerja (KKNI)</button>
             </nav>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-4 py-6">
         
-        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 text-center mb-6 relative">
-            <div class="mx-auto w-16 h-16 bg-gray-200 rounded mb-2 flex items-center justify-center text-xs text-gray-500 border border-dashed border-gray-400">
-                Logo Kab
+        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 text-center mb-6 printable-header">
+            <div class="mx-auto w-14 h-14 bg-amber-500 text-slate-900 font-extrabold rounded-full mb-3 flex items-center justify-center text-xs border shadow-inner non-printable">
+                LOGO
             </div>
-            <h2 class="text-md font-bold text-blue-900 tracking-wide">DINAS PENDIDIKAN KABUPATEN SUMEDANG</h2>
-            <h3 class="text-xs font-bold text-gray-700 mt-1 uppercase tracking-wider">Standar Pengelolaan Lembaga Kursus Non Formal<br>Penyelenggaraan Pendidikan Lembaga Kursus Non Formal Tahun 2026</h3>
-            <p class="text-[10px] text-gray-500 italic mt-2">"MANAJEMEN BERBASIS SEKOLAH (MBS) DAN PENGELOLAAN SISTEM INFORMASI (DIGITALISASI)"</p>
+            <h2 class="text-md font-bold text-blue-950 tracking-wide uppercase">Dinas Pendidikan Kabupaten Sumedang</h2>
+            <h3 class="text-xs font-bold text-gray-700 mt-1 uppercase tracking-wider leading-relaxed">
+                Standar Pengelolaan Lembaga Kursus Non Formal<br>
+                Penyelenggaraan Pendidikan Lembaga Kursus Non Formal Tahun 2026
+            </h3>
+            <div class="w-32 h-0.5 bg-amber-500 mx-auto my-2"></div>
+            <p class="text-[10px] text-gray-500 italic uppercase font-semibold">"Manajemen Berbasis Sekolah (MBS) Dan Pengelolaan Sistem Informasi (Digitalisasi)"</p>
         </div>
 
         <section id="content-beranda" class="tab-content active space-y-6">
-            <div class="flex justify-between items-center">
-                <h4 class="text-sm font-bold text-gray-800">Ringkasan Statistik Penjaminan Mutu</h4>
-                <div class="space-x-2 text-xs">
-                    <button class="bg-slate-700 text-white px-3 py-1.5 rounded shadow hover:bg-slate-800"><i class="fa fa-print mr-1"></i> Cetak Halaman</button>
-                    <button class="bg-red-600 text-white px-3 py-1.5 rounded shadow hover:bg-red-700"><i class="fa fa-file-pdf mr-1"></i> Unduh PDF Beranda</button>
-                </div>
+            <div class="flex justify-between items-center non-printable">
+                <h4 class="text-xs font-bold text-slate-700 tracking-wider uppercase"><i class="fa-solid fa-chart-pie mr-2 text-blue-600"></i>Konsolidasi Hasil Laporan Dashboard</h4>
+                <button onclick="window.print()" class="bg-slate-800 text-white px-3 py-1.5 rounded shadow hover:bg-slate-900 text-[11px]"><i class="fa fa-print mr-1"></i> Cetak Halaman Ini</button>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-                    <div class="bg-blue-600 text-white p-3 text-xs font-bold flex justify-between items-center">
-                        <span>Data Akreditasi</span><i class="fa fa-graduation-cap"></i>
-                    </div>
-                    <div class="p-4">
-                        <span class="text-[10px] text-gray-400 block uppercase font-bold">Total Lembaga</span>
-                        <span class="text-3xl font-black text-gray-800">11</span>
-                    </div>
+                    <div class="bg-blue-600 text-white p-3 text-[11px] font-bold flex justify-between items-center uppercase"><span>Status Akreditasi</span><i class="fa fa-graduation-cap"></i></div>
+                    <div class="p-4"><span class="text-[10px] text-gray-400 block uppercase font-bold">Terakreditasi (A/B)</span><span id="stat-akreditasi" class="text-3xl font-black text-slate-800">0</span></div>
                 </div>
                 <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-                    <div class="bg-amber-500 text-white p-3 text-xs font-bold flex justify-between items-center">
-                        <span>Ijin Operasional</span><i class="fa fa-edit"></i>
-                    </div>
-                    <div class="p-4">
-                        <span class="text-[10px] text-gray-400 block uppercase font-bold">Total Peserta Didik</span>
-                        <span class="text-3xl font-black text-gray-800">5</span>
-                    </div>
+                    <div class="bg-amber-500 text-white p-3 text-[11px] font-bold flex justify-between items-center uppercase"><span>Ijin Operasional</span><i class="fa fa-id-card"></i></div>
+                    <div class="p-4"><span class="text-[10px] text-gray-400 block uppercase font-bold">Ijin Aktif</span><span id="stat-operasional" class="text-3xl font-black text-slate-800">0</span></div>
                 </div>
                 <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-                    <div class="bg-emerald-600 text-white p-3 text-xs font-bold flex justify-between items-center">
-                        <span>Bentuk/Jenis Pendidikan</span><i class="fa fa-users"></i>
-                    </div>
-                    <div class="p-4">
-                        <span class="text-[10px] text-gray-400 block uppercase font-bold">Status Verval</span>
-                        <span class="text-3xl font-black text-gray-800">17%</span>
-                        <span class="text-[10px] text-gray-400 block mt-0.5">1 Sudah - 5 Belum</span>
-                    </div>
+                    <div class="bg-emerald-600 text-white p-3 text-[11px] font-bold flex justify-between items-center uppercase"><span>Bentuk Pendidikan</span><i class="fa fa-users"></i></div>
+                    <div class="p-4"><span class="text-[10px] text-gray-400 block uppercase font-bold">Total Murid</span><span id="stat-total-pd" class="text-3xl font-black text-slate-800">0</span></div>
                 </div>
                 <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-                    <div class="bg-rose-600 text-white p-3 text-xs font-bold flex justify-between items-center">
-                        <span>Daftar Program/Layanan</span><i class="fa fa-chart-line"></i>
-                    </div>
-                    <div class="p-4">
-                        <span class="text-[10px] text-gray-400 block uppercase font-bold">Capaian Program Lengkap</span>
-                        <span class="text-3xl font-black text-gray-800">0 / 6</span>
-                    </div>
+                    <div class="bg-rose-600 text-white p-3 text-[11px] font-bold flex justify-between items-center uppercase"><span>Verval Program</span><i class="fa fa-check-double"></i></div>
+                    <div class="p-4"><span class="text-[10px] text-gray-400 block uppercase font-bold">Sudah Verval</span><span id="stat-verval" class="text-3xl font-black text-slate-800">0</span></div>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-                    <h5 class="text-xs font-bold text-gray-700 mb-4 uppercase tracking-wider">Laporan Data Akreditasi</h5>
-                    <div class="h-64">
-                        <canvas id="barChartAkreditasi"></canvas>
-                    </div>
+                    <h5 class="text-xs font-bold text-gray-700 mb-4 uppercase tracking-wider">Sebaran Akreditasi Lembaga</h5>
+                    <div class="h-64"><canvas id="barChartAkreditasi"></canvas></div>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-                    <h5 class="text-xs font-bold text-gray-700 mb-4 uppercase tracking-wider">Laporan PD Bentuk/Jenis Pendidikan</h5>
+                    <h5 class="text-xs font-bold text-gray-700 mb-4 uppercase tracking-wider">Statistik Peserta Didik & Verval</h5>
                     <div class="grid grid-cols-2 gap-2 h-64">
-                        <div class="relative flex flex-col items-center">
-                            <span class="text-[10px] font-bold text-gray-500 mb-2">Komposisi Gender</span>
-                            <canvas id="donutGender"></canvas>
-                        </div>
-                        <div class="relative flex flex-col items-center">
-                            <span class="text-[10px] font-bold text-gray-500 mb-2">Status Verval KKNI</span>
-                            <canvas id="donutVerval"></canvas>
-                        </div>
+                        <div class="flex flex-col items-center"><span class="text-[10px] font-bold text-gray-500 mb-2 uppercase">Gender (L/P)</span><canvas id="donutGender"></canvas></div>
+                        <div class="flex flex-col items-center"><span class="text-[10px] font-bold text-gray-500 mb-2 uppercase">Status Verval</span><canvas id="donutVerval"></canvas></div>
                     </div>
-                </div>
-            </div>
-
-            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-                <h5 class="text-xs font-bold text-gray-700 mb-2 uppercase tracking-wider">Daftar Program/Layanan Keterampilan Kerja (Rata-rata KKNI %)</h5>
-                <div class="h-48 flex items-center justify-center border border-dashed border-gray-200 rounded">
-                    <span class="text-xs text-gray-400 italic">Grafik Garis/Batang KKNI J.Op1 - J.Ah9</span>
                 </div>
             </div>
         </section>
 
-
         <section id="content-akreditasi" class="tab-content space-y-4">
-            <div class="flex justify-between items-center">
-                <h4 class="text-sm font-bold text-gray-800">Data Akreditasi Lembaga</h4>
+            <div class="flex justify-between items-center non-printable">
+                <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Laporan Akreditasi Lembaga</h4>
                 <div class="space-x-1 text-xs">
-                    <button class="bg-slate-700 text-white px-3 py-1.5 rounded"><i class="fa fa-print mr-1"></i> Cetak</button>
-                    <button class="bg-red-600 text-white px-3 py-1.5 rounded"><i class="fa fa-file-pdf mr-1"></i> Unduh PDF</button>
-                    <button class="bg-blue-600 text-white px-3 py-1.5 rounded"><i class="fa fa-plus mr-1"></i> Input Data Baru</button>
+                    <button onclick="window.print()" class="bg-slate-700 text-white px-2.5 py-1.5 rounded"><i class="fa fa-print"></i> Cetak</button>
+                    <button onclick="openModal('akreditasi')" class="bg-blue-600 text-white px-2.5 py-1.5 rounded font-bold"><i class="fa fa-plus"></i> Tambah Data</button>
                 </div>
             </div>
-            
             <div class="overflow-x-auto bg-white rounded-lg shadow border border-gray-200">
-                <table class="w-full text-left border-collapse text-xs">
+                <table class="w-full text-left border-collapse text-xs" id="table-akreditasi">
                     <thead>
-                        <tr class="bg-gray-50 text-gray-600 uppercase font-bold border-b border-gray-200 text-[10px]">
+                        <tr class="bg-slate-800 text-white uppercase font-bold text-[10px]">
                             <th class="p-3 w-12 text-center">No</th>
                             <th class="p-3">NPSN</th>
-                            <th class="p-3">Nama Sekolah</th>
+                            <th class="p-3">Nama Lembaga Kursus (LKP)</th>
                             <th class="p-3">Alamat</th>
-                            <th class="p-3">Kepala Sekolah</th>
-                            <th class="p-3 text-center">Akreditasi</th>
+                            <th class="p-3">Pimpinan</th>
+                            <th class="p-3 text-center">Nilai Akre</th>
                             <th class="p-3 text-center">Tahun Akre</th>
-                            <th class="p-3 text-center">Tahun Berakhir</th>
+                            <th class="p-3 text-center">Masa Berlaku</th>
                             <th class="p-3">Nomor SK</th>
-                            <th class="p-3 text-center">Aksi</th>
+                            <th class="p-3 text-center non-printable">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody class="text-gray-700 divide-y divide-gray-100">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3 text-center">1</td>
-                            <td class="p-3 text-blue-600 font-semibold">P2963449</td>
-                            <td class="p-3 font-medium">LKP Family English Course (FEC)</td>
-                            <td class="p-3 text-gray-500">Jl. Raya Jatinangor No. 297</td>
-                            <td class="p-3">Dra. SEKARWATI</td>
-                            <td class="p-3 text-center"><span class="bg-red-100 text-red-600 px-2 py-0.5 rounded text-[10px]">Belum</span></td>
-                            <td class="p-3 text-center">0</td>
-                            <td class="p-3 text-center"><span class="bg-red-100 text-red-600 px-2 py-0.5 rounded text-[10px]">0</span></td>
-                            <td class="p-3 text-gray-400 text-[11px]">No SK: -</td>
-                            <td class="p-3 text-center space-x-1">
-                                <button class="text-blue-600 hover:text-blue-800"><i class="fa fa-edit"></i></button>
-                                <button class="text-red-600 hover:text-red-800"><i class="fa fa-trash"></i></button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3 text-center">2</td>
-                            <td class="p-3 text-blue-600 font-semibold">P9934728</td>
-                            <td class="p-3 font-medium">LKP GANESHA PRATAMA</td>
-                            <td class="p-3 text-gray-500">Jalan P. Santri No. 78 Kel. Kota Kulon</td>
-                            <td class="p-3">M. ARWAN AZIZ, ST</td>
-                            <td class="p-3 text-center"><span class="bg-blue-100 text-blue-600 px-2.5 py-0.5 rounded font-bold">B</span></td>
-                            <td class="p-3 text-center">2019</td>
-                            <td class="p-3 text-center"><span class="bg-red-100 text-red-600 px-2 py-0.5 rounded font-bold">2024</span></td>
-                            <td class="p-3 text-gray-400 text-[11px]">153/BAN PAUD DAN PNF/AKR/2019</td>
-                            <td class="p-3 text-center space-x-1">
-                                <button class="text-blue-600 hover:text-blue-800"><i class="fa fa-edit"></i></button>
-                                <button class="text-red-600 hover:text-red-800"><i class="fa fa-trash"></i></button>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </section>
 
         <section id="content-operasional" class="tab-content space-y-4">
-            <div class="flex justify-between items-center">
-                <h4 class="text-sm font-bold text-gray-800">Data Ijin Operasional Lembaga</h4>
+            <div class="flex justify-between items-center non-printable">
+                <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Validitas Ijin Operasional</h4>
                 <div class="space-x-1 text-xs">
-                    <button class="bg-slate-700 text-white px-3 py-1.5 rounded"><i class="fa fa-print mr-1"></i> Cetak</button>
-                    <button class="bg-red-600 text-white px-3 py-1.5 rounded"><i class="fa fa-file-pdf mr-1"></i> Unduh PDF</button>
-                    <button class="bg-amber-500 text-white px-3 py-1.5 rounded"><i class="fa fa-plus mr-1"></i> Input Data Baru</button>
+                    <button onclick="window.print()" class="bg-slate-700 text-white px-2.5 py-1.5 rounded"><i class="fa fa-print"></i> Cetak</button>
+                    <button onclick="openModal('operasional')" class="bg-amber-500 text-white px-2.5 py-1.5 rounded font-bold"><i class="fa fa-plus"></i> Tambah Data</button>
                 </div>
             </div>
-
             <div class="overflow-x-auto bg-white rounded-lg shadow border border-gray-200">
-                <table class="w-full text-left border-collapse text-xs">
+                <table class="w-full text-left border-collapse text-xs" id="table-operasional">
                     <thead>
-                        <tr class="bg-gray-50 text-gray-600 uppercase font-bold border-b border-gray-200 text-[10px]">
+                        <tr class="bg-slate-800 text-white uppercase font-bold text-[10px]">
                             <th class="p-3 w-12 text-center">No</th>
                             <th class="p-3">NPSN</th>
-                            <th class="p-3">Nama Lembaga</th>
-                            <th class="p-3">Alamat</th>
-                            <th class="p-3">Kepala Sekolah</th>
-                            <th class="p-3 text-center">Pembuatan</th>
-                            <th class="p-3 text-center">Berakhir</th>
+                            <th class="p-3">Nama Lembaga Pendidikan</th>
+                            <th class="p-3">Lokasi Alamat</th>
+                            <th class="p-3">Penanggung Jawab</th>
+                            <th class="p-3 text-center">Tahun Terbit</th>
+                            <th class="p-3 text-center">Habis Masa</th>
                             <th class="p-3">Nomor SK</th>
-                            <th class="p-3 text-center">Aksi</th>
+                            <th class="p-3 text-center non-printable">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody class="text-gray-700 divide-y divide-gray-100">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3 text-center">1</td>
-                            <td class="p-3 text-blue-600 font-semibold">K5659720</td>
-                            <td class="p-3 font-medium">LKP Family English Course (FEC)</td>
-                            <td class="p-3 text-gray-500">Jl. Raya Jatinangor No. 297</td>
-                            <td class="p-3">Dra. SEKARWATI</td>
-                            <td class="p-3 text-center">0</td>
-                            <td class="p-3 text-center"><span class="bg-red-100 text-red-600 px-2 py-0.5 rounded">0</span></td>
-                            <td class="p-3 text-gray-400">No SK: -</td>
-                            <td class="p-3 text-center space-x-1">
-                                <button class="text-blue-600 hover:text-blue-800"><i class="fa fa-edit"></i></button>
-                                <button class="text-red-600 hover:text-red-800"><i class="fa fa-trash"></i></button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3 text-center font-medium">5</td>
-                            <td class="p-3 text-blue-600 font-semibold">K5659740</td>
-                            <td class="p-3 font-medium">LKP Yani 43 Sumedang</td>
-                            <td class="p-3 text-gray-500">Jl. Pendopo No. 17 Talun</td>
-                            <td class="p-3">-</td>
-                            <td class="p-3 text-center">2026</td>
-                            <td class="p-3 text-center"><span class="bg-emerald-100 text-emerald-600 px-2 py-0.5 rounded font-bold">2029</span></td>
-                            <td class="p-3 text-gray-500">No SK: 0156 TA 2026</td>
-                            <td class="p-3 text-center space-x-1">
-                                <button class="text-blue-600 hover:text-blue-800"><i class="fa fa-edit"></i></button>
-                                <button class="text-red-600 hover:text-red-800"><i class="fa fa-trash"></i></button>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </section>
 
         <section id="content-peserta" class="tab-content space-y-4">
-            <div class="flex justify-between items-center">
-                <h4 class="text-sm font-bold text-gray-800">Data PD Bentuk/Jenis Pendidikan</h4>
+            <div class="flex justify-between items-center non-printable">
+                <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Rekapitulasi Data Peserta Didik</h4>
                 <div class="space-x-1 text-xs">
-                    <button class="bg-slate-700 text-white px-3 py-1.5 rounded"><i class="fa fa-print mr-1"></i> Cetak</button>
-                    <button class="bg-red-600 text-white px-3 py-1.5 rounded"><i class="fa fa-file-pdf mr-1"></i> Unduh PDF</button>
-                    <button class="bg-emerald-600 text-white px-3 py-1.5 rounded"><i class="fa fa-plus mr-1"></i> Input Data Baru</button>
+                    <button onclick="window.print()" class="bg-slate-700 text-white px-2.5 py-1.5 rounded"><i class="fa fa-print"></i> Cetak</button>
+                    <button onclick="openModal('peserta')" class="bg-emerald-600 text-white px-2.5 py-1.5 rounded font-bold"><i class="fa fa-plus"></i> Tambah Data</button>
                 </div>
             </div>
-
             <div class="overflow-x-auto bg-white rounded-lg shadow border border-gray-200">
-                <table class="w-full text-left border-collapse text-xs">
+                <table class="w-full text-left border-collapse text-xs" id="table-peserta">
                     <thead>
-                        <tr class="bg-gray-50 text-gray-600 uppercase font-bold border-b border-gray-200 text-[10px]">
-                            <th class="p-3 text-center" rowspan="2">No</th>
-                            <th class="p-3" rowspan="2">NPSN</th>
-                            <th class="p-3" rowspan="2">Nama Sekolah</th>
-                            <th class="p-3" rowspan="2">Kecamatan</th>
-                            <th class="p-3 text-center text-red-600" rowspan="2">Bentuk/Jenis Pendidikan</th>
-                            <th class="p-3 text-center bg-gray-100" colspan="3">Data Murid Utama</th>
-                            <th class="p-3 text-center text-red-600" rowspan="2">Program Pelatihan</th>
-                            <th class="p-3 text-center bg-gray-100" colspan="3">Data Peserta Program</th>
-                            <th class="p-3 text-center" rowspan="2">Verval</th>
-                            <th class="p-3 text-center" rowspan="2">Aksi</th>
+                        <tr class="bg-slate-800 text-white uppercase font-bold text-[10px] text-center">
+                            <th class="p-3 w-12 text-left" rowspan="2">No</th>
+                            <th class="p-3 text-left" rowspan="2">NPSN</th>
+                            <th class="p-3 text-left" rowspan="2">Nama LKP</th>
+                            <th class="p-3 text-left" rowspan="2">Kecamatan</th>
+                            <th class="p-3 text-amber-500" rowspan="2">Jenis</th>
+                            <th class="p-3 bg-slate-700 text-white" colspan="3">Siswa Utama</th>
+                            <th class="p-3 text-amber-500" rowspan="2">Program</th>
+                            <th class="p-3 bg-slate-700 text-white" colspan="3">Peserta Kursus</th>
+                            <th class="p-3" rowspan="2">Verval</th>
+                            <th class="p-3 non-printable" rowspan="2">Aksi</th>
                         </tr>
-                        <tr class="bg-gray-50 text-gray-600 uppercase font-bold border-b border-gray-200 text-[9px]">
-                            <th class="p-2 border-l border-gray-200 text-center">L</th>
-                            <th class="p-2 text-center">P</th>
-                            <th class="p-2 text-center font-bold">Total</th>
-                            <th class="p-2 border-l border-gray-200 text-center">L</th>
-                            <th class="p-2 text-center">P</th>
-                            <th class="p-2 text-center font-bold">Total</th>
+                        <tr class="bg-slate-700 text-white uppercase font-bold text-[9px]">
+                            <th class="p-2 border-l border-slate-600 text-center">L</th><th class="p-2 text-center">P</th><th class="p-2 text-center font-bold bg-slate-600">Total</th>
+                            <th class="p-2 border-l border-slate-600 text-center">L</th><th class="p-2 text-center">P</th><th class="p-2 text-center font-bold bg-slate-600">Total</th>
                         </tr>
                     </thead>
-                    <tbody class="text-gray-700 divide-y divide-gray-100">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3 text-center">1</td>
-                            <td class="p-3 text-blue-600 font-semibold">K5659720</td>
-                            <td class="p-3 font-medium">LKP Family English Course (FEC)</td>
-                            <td class="p-3">Sumedang Utara</td>
-                            <td class="p-3 text-center text-red-600 font-medium">Kursus</td>
-                            <td class="p-3 text-center">4</td>
-                            <td class="p-3 text-center">1</td>
-                            <td class="p-3 text-center font-bold">5</td>
-                            <td class="p-3 text-center text-red-600 font-bold">TOEFL</td>
-                            <td class="p-3 text-center">4</td>
-                            <td class="p-3 text-center">1</td>
-                            <td class="p-3 text-center font-bold">5</td>
-                            <td class="p-3 text-center"><span class="bg-emerald-100 text-emerald-600 px-2 py-0.5 rounded text-[10px]">Sudah</span></td>
-                            <td class="p-3 text-center space-x-1">
-                                <button class="text-blue-600 hover:text-blue-800"><i class="fa fa-edit"></i></button>
-                                <button class="text-red-600 hover:text-red-800"><i class="fa fa-trash"></i></button>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </section>
 
         <section id="content-program" class="tab-content space-y-4">
-            <div class="flex justify-between items-center">
-                <h4 class="text-sm font-bold text-gray-800">Capaian Lembaga berdasarkan Program dan Layanan</h4>
+            <div class="flex justify-between items-center non-printable">
+                <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Keterisian Jenjang KKNI (%)</h4>
                 <div class="space-x-1 text-xs">
-                    <button class="bg-slate-700 text-white px-3 py-1.5 rounded"><i class="fa fa-print mr-1"></i> Cetak</button>
-                    <button class="bg-red-600 text-white px-3 py-1.5 rounded"><i class="fa fa-file-pdf mr-1"></i> Unduh PDF</button>
-                    <button class="bg-rose-600 text-white px-3 py-1.5 rounded"><i class="fa fa-plus mr-1"></i> Input Data Baru</button>
+                    <button onclick="window.print()" class="bg-slate-700 text-white px-2.5 py-1.5 rounded"><i class="fa fa-print"></i> Cetak</button>
+                    <button onclick="openModal('program')" class="bg-rose-600 text-white px-2.5 py-1.5 rounded font-bold"><i class="fa fa-plus"></i> Tambah Data</button>
                 </div>
             </div>
-
             <div class="overflow-x-auto bg-white rounded-lg shadow border border-gray-200">
-                <table class="w-full text-left border-collapse text-xs">
+                <table class="w-full text-left border-collapse text-xs" id="table-program">
                     <thead>
-                        <tr class="bg-gray-50 text-gray-600 uppercase font-bold border-b border-gray-200 text-[9px] text-center">
+                        <tr class="bg-slate-800 text-white uppercase font-bold text-[10px] text-center">
                             <th class="p-3 w-12 text-left" rowspan="2">No</th>
                             <th class="p-3 text-left" rowspan="2">NPSN</th>
                             <th class="p-3 text-left" rowspan="2">Nama Lembaga</th>
                             <th class="p-3 text-left" rowspan="2">Alamat</th>
-                            <th class="p-3" colspan="9">KKNI (KERANGKA KUALIFIKASI NASIONAL INDONESIA) (%)</th>
+                            <th class="p-3 text-amber-400" colspan="9">KKNI (KERANGKA KUALIFIKASI NASIONAL INDONESIA) (%)</th>
                             <th class="p-3" rowspan="2">Keterisian</th>
-                            <th class="p-3" rowspan="2">Aksi</th>
+                            <th class="p-3 non-printable" rowspan="2">Aksi</th>
                         </tr>
-                        <tr class="bg-gray-100 text-gray-600 font-bold border-b border-gray-200 text-[8px]">
-                            <th class="p-1 border-l border-gray-200">Jen. Op 1</th>
-                            <th class="p-1">Jen. Op 2</th>
-                            <th class="p-1">Jen. Op 3</th>
-                            <th class="p-1">Jen. Tek/Analis 4</th>
-                            <th class="p-1">Jen. Tek/Analis 5</th>
-                            <th class="p-1">Jen. Tek/Analis 6</th>
-                            <th class="p-1">Jen. Ahli 7</th>
-                            <th class="p-1">Jen. Ahli 8</th>
-                            <th class="p-1">Jen. Ahli 9</th>
+                        <tr class="bg-slate-700 text-white font-bold text-[10px]">
+                            <th class="p-2 border-l border-slate-600 text-center">Level 1</th><th class="p-2 text-center">Level 2</th><th class="p-2 text-center">Level 3</th>
+                            <th class="p-2 text-center">Level 4</th><th class="p-2 text-center">Level 5</th><th class="p-2 text-center">Level 6</th>
+                            <th class="p-2 text-center">Level 7</th><th class="p-2 text-center">Level 8</th><th class="p-2 text-center">Level 9</th>
                         </tr>
                     </thead>
-                    <tbody class="text-gray-700 divide-y divide-gray-100 text-[11px]">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3 text-center">1</td>
-                            <td class="p-3 text-blue-600 font-semibold">K5659720</td>
-                            <td class="p-3 font-medium text-left">LKP Family English Course (FEC)</td>
-                            <td class="p-3 text-gray-500 text-left">Jl. Raya Jatinangor No. 297</td>
-                            <td class="p-1 text-center"><span class="bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded font-bold">100</span></td>
-                            <td class="p-1 text-center"><span class="bg-red-50 text-red-500 px-1.5 py-0.5 rounded">0</span></td>
-                            <td class="p-1 text-center"><span class="bg-red-50 text-red-500 px-1.5 py-0.5 rounded">0</span></td>
-                            <td class="p-1 text-center"><span class="bg-red-50 text-red-500 px-1.5 py-0.5 rounded">0</span></td>
-                            <td class="p-1 text-center"><span class="bg-red-50 text-red-500 px-1.5 py-0.5 rounded">0</span></td>
-                            <td class="p-1 text-center"><span class="bg-red-50 text-red-500 px-1.5 py-0.5 rounded">0</span></td>
-                            <td class="p-1 text-center"><span class="bg-red-50 text-red-500 px-1.5 py-0.5 rounded">0</span></td>
-                            <td class="p-1 text-center"><span class="bg-red-50 text-red-500 px-1.5 py-0.5 rounded">0</span></td>
-                            <td class="p-1 text-center"><span class="bg-red-50 text-red-500 px-1.5 py-0.5 rounded">0</span></td>
-                            <td class="p-3 text-center"><span class="bg-slate-800 text-white text-[9px] px-2 py-0.5 rounded font-bold uppercase tracking-tighter">LEVEL</span></td>
-                            <td class="p-3 text-center space-x-1">
-                                <button class="text-blue-600 hover:text-blue-800"><i class="fa fa-edit"></i></button>
-                                <button class="text-red-600 hover:text-red-800"><i class="fa fa-trash"></i></button>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </section>
 
     </main>
 
-    <script>
-        // Tab Switcher Logic
-        function switchTab(tabId) {
-            // Hide all tab contents
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            // Deactivate all nav buttons
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white');
-                btn.classList.add('text-gray-300', 'hover:bg-slate-800', 'hover:text-white');
-            });
+    <div id="crudModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden non-printable">
+        <div class="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b pb-3 mb-4">
+                <h3 class="text-sm font-bold text-slate-800 uppercase" id="modalTitle">Form Input Data</h3>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 font-bold text-lg">&times;</button>
+            </div>
+            <form id="modalForm" onsubmit="saveFormData(event)" class="space-y-3 text-xs">
+                <input type="hidden" id="form-type">
+                <input type="hidden" id="form-index">
+                <div id="dynamic-fields" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    </div>
+                <div class="flex justify-end space-x-2 border-t pt-3 mt-4">
+                    <button type="button" onclick="closeModal()" class="bg-gray-200 text-gray-700 px-3 py-2 rounded">Batal</button>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded font-bold">Simpan Data</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-            // Show targets
-            document.getElementById('content-' + tabId).classList.add('active');
-            const activeBtn = document.getElementById('nav-' + tabId);
-            activeBtn.classList.remove('text-gray-300', 'hover:bg-slate-800', 'hover:text-white');
-            activeBtn.classList.add('bg-blue-600', 'text-white');
-        }
-
-        // --- CHARTS INITIALIZATION (BERANDA) ---
-        // 1. Bar Chart Data Akreditasi
-        const ctxBar = document.getElementById('barChartAkreditasi').getContext('2d');
-        new Chart(ctxBar, {
-            type: 'bar',
-            data: {
-                labels: ['Akreditasi A', 'Akreditasi B', 'Akreditasi C', 'Akreditasi TT', 'Akreditasi Belum'],
-                datasets: [{
-                    label: 'Jumlah Lembaga',
-                    data: [0, 2.7, 1.9, 0, 0.9], // Sesuai visual rasio tinggi grafik di screenshot 1
-                    backgroundColor: ['#3b82f6', '#3b82f6', '#f59e0b', '#94a3b8', '#94a3b8'],
-                    borderRadius: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true, max: 3 } }
-            }
-        });
-
-        // 2. Donut Chart Komposisi Gender
-        const ctxGen = document.getElementById('donutGender').getContext('2d');
-        new Chart(ctxGen, {
-            type: 'doughnut',
-            data: {
-                labels: ['Laki-Laki', 'Perempuan'],
-                datasets: [{
-                    data: [4, 1],
-                    backgroundColor: ['#3b82f6', '#ec4899'],
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 9 } } } },
-                cutout: '60%'
-            }
-        });
-
-        // 3. Donut Chart Status Verval
-        const ctxVer = document.getElementById('donutVerval').getContext('2d');
-        new Chart(ctxVer, {
-            type: 'doughnut',
-            data: {
-                labels: ['Sudah Verval', 'Belum Verval'],
-                datasets: [{
-                    data: [1, 5],
-                    backgroundColor: ['#10b981', '#f97316'],
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 9 } } } },
-                cutout: '60%'
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
