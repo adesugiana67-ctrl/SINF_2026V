@@ -1,4 +1,4 @@
-/* Core Tab Display Control */
+/* Tab Switcher Display */
 .tab-content { 
     display: none; 
 }
@@ -6,49 +6,29 @@
     display: block; 
 }
 
-/* Cursor pointer style */
-.nav-btn {
-    cursor: pointer;
-}
-
-/* Engine Optimization for Print / PDF Report */
+/* Print CSS Optimization */
 @media print {
     body {
         background-color: #ffffff !important;
         font-size: 10px !important;
-        color: #000000 !important;
     }
-    .non-printable, header, button, .action-buttons, th.non-printable, td.non-printable {
+    .non-printable, header, button, .action-buttons {
         display: none !important;
     }
     .printable-header {
         border: none !important;
         box-shadow: none !important;
         padding: 0 !important;
-        margin-bottom: 25px !important;
+        margin-bottom: 20px !important;
     }
     main {
         padding: 0 !important;
-        margin: 0 !important;
     }
     .overflow-x-auto {
         overflow: visible !important;
     }
     table {
         width: 100% !important;
-        border-collapse: collapse !important;
-        page-break-inside: auto;
-    }
-    tr {
-        page-break-inside: avoid;
-        page-break-after: auto;
-    }
-    th, td {
-        border: 1px solid #94a3b8 !important;
-        padding: 6px !important;
-        color: #000000 !important;
-    }
-    thead {
-        display: table-header-group;
+        border: 1px solid #cbd5e1 !important;
     }
 }
